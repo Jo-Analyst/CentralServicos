@@ -1,4 +1,4 @@
-﻿namespace CentralServicos
+﻿namespace Interface
 {
     partial class FrmCentralService
     {
@@ -87,6 +87,7 @@
             this.usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
             this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuárioToolStripMenuItem.Text = "Usuário";
+            this.usuárioToolStripMenuItem.Click += new System.EventHandler(this.usuárioToolStripMenuItem_Click);
             // 
             // atendimentoToolStripMenuItem
             // 
@@ -112,7 +113,7 @@
             this.atendimentoToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.atendimentoToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("atendimentoToolStripMenuItem1.Image")));
             this.atendimentoToolStripMenuItem1.Name = "atendimentoToolStripMenuItem1";
-            this.atendimentoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.atendimentoToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
             this.atendimentoToolStripMenuItem1.Text = "Atendimento";
             // 
             // configuraçãoToolStripMenuItem
@@ -132,7 +133,7 @@
             this.backupToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.backupToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("backupToolStripMenuItem.Image")));
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.backupToolStripMenuItem.Text = "Backup";
             // 
             // ajustarToolStripMenuItem
@@ -141,7 +142,7 @@
             this.ajustarToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.ajustarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ajustarToolStripMenuItem.Image")));
             this.ajustarToolStripMenuItem.Name = "ajustarToolStripMenuItem";
-            this.ajustarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ajustarToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.ajustarToolStripMenuItem.Text = "Ajustar";
             // 
             // FrmCentralService

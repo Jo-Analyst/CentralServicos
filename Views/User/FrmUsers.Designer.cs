@@ -291,7 +291,7 @@
             // 
             // ColADD
             // 
-            this.ColADD.HeaderText = "Adicionar";
+            this.ColADD.HeaderText = "Adicionar ";
             this.ColADD.Name = "ColADD";
             this.ColADD.ReadOnly = true;
             this.ColADD.ToolTipText = "Adicionar atendimento";

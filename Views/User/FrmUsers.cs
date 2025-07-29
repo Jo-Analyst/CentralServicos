@@ -142,7 +142,6 @@ namespace Interface
                     dgvUsers.Rows[index].Cells["ColAddress"].Value = user["Address"].ToString();
                     dgvUsers.Rows[index].Cells["ColPhone"].Value = user["phone"].ToString();
                     dgvUsers.Rows[index].Height = 45;
-                    //dgvUsers.Rows[index].Selected = false;
                 }
 
                 UpdateUserDescription();
@@ -241,8 +240,8 @@ namespace Interface
 
             if (dgvUsers.CurrentCell.ColumnIndex == 0)
             {
-                //FrmCustomerService frmCustomer = new FrmCustomerService(id, name);
-                //frmCustomer.ShowDialog();
+                FrmService frmService = new FrmService(id, name);
+                frmService.ShowDialog();
             }
             else if (dgvUsers.CurrentCell.ColumnIndex == 1)
             {

@@ -34,7 +34,7 @@ namespace Interface
 
                 if (string.IsNullOrWhiteSpace(txtName.Text))
                 {
-                    MessageBox.Show("Insira o nome do Usuário", "Campo Obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Insira o nome do Usuário", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 

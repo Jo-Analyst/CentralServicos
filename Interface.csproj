@@ -67,6 +67,12 @@
     <Compile Include="FrmLoading.Designer.cs">
       <DependentUpon>FrmLoading.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Service\FrmCustomerService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Service\FrmCustomerService.Designer.cs">
+      <DependentUpon>FrmCustomerService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Service\FrmService.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,7 @@
     </Compile>
     <EmbeddedResource Include="FrmCentralService.resx">
       <DependentUpon>FrmCentralService.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -100,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="FrmLoading.resx">
       <DependentUpon>FrmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Service\FrmCustomerService.resx">
+      <DependentUpon>FrmCustomerService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Service\FrmService.resx">
       <DependentUpon>FrmService.cs</DependentUpon>

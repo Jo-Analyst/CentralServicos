@@ -240,8 +240,8 @@ namespace Interface
 
             if (dgvUsers.CurrentCell.ColumnIndex == 0)
             {
-                FrmService frmService = new FrmService(id, name);
-                frmService.ShowDialog();
+                //new FrmService(id, name).ShowDialog();
+                new FrmCustomerService().ShowDialog();
             }
             else if (dgvUsers.CurrentCell.ColumnIndex == 1)
             {

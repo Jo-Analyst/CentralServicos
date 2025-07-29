@@ -9,11 +9,8 @@ namespace DataBase
         public int id { get; set; }
         public string name { get; set; }
         public string CPF { get; set; }
-        public string birth { get; set; }
         public string address { get; set; }
-        public string numberAddress { get; set; }
         public string phone { get; set; }
-        public string familyReference { get; set; }
 
         public void Save()
         {
@@ -22,20 +19,16 @@ namespace DataBase
                 using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     string query = id == 0
-                        ? "INSERT INTO Users (name, CPF, address, number_address, phone, birth, family_reference) VALUES (@name, @CPF, @address, @number_address, @phone, @birth, @family_reference); SELECT @@identity"
-                        : "UPDATE Users SET name = @name, CPF = @CPF, address = @address, number_address = @number_address, phone = @phone, birth = @birth, family_reference = @family_reference WHERE id = @id";
+                        ? "INSERT INTO Users (name, CPF, address, phone) VALUES (@name, @CPF, @address, @phone); SELECT @@identity"
+                        : "UPDATE Users SET name = @name, CPF = @CPF, address = @address, phone = @phone WHERE id = @id";
 
                     connection.Open();
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@id", id);
                     command.Parameters.AddWithValue("@name", name);
                     command.Parameters.AddWithValue("@CPF", CPF);
-                    command.Parameters.AddWithValue("@birth", birth);
                     command.Parameters.AddWithValue("@address", address);
-                    command.Parameters.AddWithValue("@number_address", numberAddress);
                     command.Parameters.AddWithValue("@phone", phone);
-                    command.Parameters.AddWithValue("@family_reference", familyReference);
-
                     command.ExecuteNonQuery();
                 }
             }

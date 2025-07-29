@@ -103,10 +103,10 @@ namespace Interface
         private void FrmUsers_Load(object sender, EventArgs e)
         {
             cbPage.Text = "1";
-            //cbRows.Text = "5";
-            //LoadEvents();
-            //this.cbRows.SelectedIndexChanged += cbRows_SelectedIndexChanged;
-            //this.cbPage.SelectedIndexChanged += new System.EventHandler(this.cbPage_SelectedIndexChanged);
+            cbRows.Text = "5";
+            LoadEvents();
+            this.cbRows.SelectedIndexChanged += cbRows_SelectedIndexChanged;
+            this.cbPage.SelectedIndexChanged += new System.EventHandler(this.cbPage_SelectedIndexChanged);
         }
 
         private void CheckNumberOfPages(int numberRows)
@@ -139,12 +139,10 @@ namespace Interface
                     dgvUsers.Rows[index].Cells["ColId"].Value = user["id"].ToString();
                     dgvUsers.Rows[index].Cells["ColName"].Value = user["name"].ToString();
                     dgvUsers.Rows[index].Cells["ColCPF"].Value = string.IsNullOrEmpty(user["CPF"].ToString()) ? "" : Security.Dry(user["CPF"].ToString());
-                    dgvUsers.Rows[index].Cells["ColBirth"].Value = user["Birth"].ToString();
                     dgvUsers.Rows[index].Cells["ColAddress"].Value = user["Address"].ToString();
-                    dgvUsers.Rows[index].Cells["ColNumber"].Value = user["number_address"].ToString();
                     dgvUsers.Rows[index].Cells["ColPhone"].Value = user["phone"].ToString();
-                    dgvUsers.Rows[index].Cells["ColFamilyReference"].Value = user["family_reference"].ToString();
                     dgvUsers.Rows[index].Height = 45;
+                    //dgvUsers.Rows[index].Selected = false;
                 }
 
                 UpdateUserDescription();
@@ -238,11 +236,8 @@ namespace Interface
             int id = Convert.ToInt32(dgvUsers.CurrentRow.Cells["ColId"].Value);
             string name = dgvUsers.CurrentRow.Cells["ColName"].Value.ToString();
             string CPF = dgvUsers.CurrentRow.Cells["ColCpf"].Value.ToString();
-            string birth = dgvUsers.CurrentRow.Cells["ColBirth"].Value.ToString();
             string address = dgvUsers.CurrentRow.Cells["ColAddress"].Value.ToString();
-            string numberAddress = dgvUsers.CurrentRow.Cells["ColNumber"].Value.ToString();
             string phone = dgvUsers.CurrentRow.Cells["ColPhone"].Value.ToString();
-            string familyReference = dgvUsers.CurrentRow.Cells["ColFamilyReference"].Value.ToString();
 
             if (dgvUsers.CurrentCell.ColumnIndex == 0)
             {
@@ -252,7 +247,7 @@ namespace Interface
             else if (dgvUsers.CurrentCell.ColumnIndex == 1)
             {
 
-                FrmSaveUser frmUser = new FrmSaveUser(id, name, CPF, birth, phone, address, numberAddress, familyReference);
+                FrmSaveUser frmUser = new FrmSaveUser(id, name, CPF, phone, address);
                 frmUser.ShowDialog();
                 if (frmUser.isSaved)
                     isConfirmed = true;

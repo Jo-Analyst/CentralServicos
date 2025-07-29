@@ -14,17 +14,14 @@ namespace Interface
             InitializeComponent();
         }
 
-        public FrmSaveUser(int id, string name, string cpf, string birth, string phone, string address, string numberAddress, string familyReferences)
+        public FrmSaveUser(int id, string name, string cpf, string phone, string address)
         {
             InitializeComponent();
             userId = id;
             txtName.Text = name;
             mkCPF.Text = cpf;
-            dtBirth.Text = birth;
             mkPhone.Text = phone;
             txtAddress.Text = address;
-            txtNumberAddress.Text = numberAddress;
-            txtFamilyReference.Text = familyReferences;
             btnSave.Focus();
             this.btnSave.TabStop = true;
 
@@ -45,13 +42,13 @@ namespace Interface
                 {
                     if (!CPF.Validate(mkCPF.Text))
                     {
-                        MessageBox.Show("CPF inválido", "CREAS Analytics", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("CPF inválido", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
 
                     else if (User.FindByCpfForUser(Security.Cry(mkCPF.Text), userId).Rows.Count > 0)
                     {
-                        MessageBox.Show("Este CPF já está cadastrado", "CREAS Analytics", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Este CPF já está cadastrado", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }
@@ -62,11 +59,8 @@ namespace Interface
                     id = userId,
                     name = txtName.Text.Trim(),
                     CPF = mkCPF.MaskCompleted ? Security.Cry(mkCPF.Text) : "",
-                    birth = dtBirth.Text,
                     address = txtAddress.Text.Trim(),
-                    numberAddress = txtNumberAddress.Text.Trim(),
                     phone = mkPhone.MaskCompleted ? mkPhone.Text : "",
-                    familyReference = txtFamilyReference.Text.Trim()
                 }.Save();
 
                 isSaved = true;

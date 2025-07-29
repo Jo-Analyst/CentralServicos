@@ -14,5 +14,10 @@ namespace Interface
             FrmUsers frmUsers = new FrmUsers();
             frmUsers.ShowDialog();
         }
+
+        private void FrmCentralService_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

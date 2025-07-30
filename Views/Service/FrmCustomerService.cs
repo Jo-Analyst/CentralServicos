@@ -128,6 +128,9 @@ namespace Interface
                     cbEntryAndExit.Checked = false;
                     cbEntryAndExit_CheckedChanged(sender, e);
                 }
+
+                else 
+                    cbEntryAndExit.Checked = true;
             }
 
 

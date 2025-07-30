@@ -16,11 +16,11 @@ namespace Interface
         }
 
 
-        //static public int SetPageQuantityServices(int userId = 0)
-        //{
-        //    quantity = PaefiService.CountQuantityServices(userId);
-        //    return CalculateNumberOfPage();
-        //}
+        static public int SetPageQuantityServices(int userId = 0)
+        {
+            quantity = Service.CountQuantityServices(userId);
+            return CalculateNumberOfPage();
+        }
 
         //static public int SetPageQuantityServicesAll()
         //{

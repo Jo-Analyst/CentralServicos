@@ -12,11 +12,6 @@ namespace Interface
 
         int userId, page = 1, pageMaximum = 1, serviceId;
 
-        public FrmCustomerService()
-        {
-            InitializeComponent();
-        }
-
         public FrmCustomerService(int userId, string name)
         {
             InitializeComponent();
@@ -29,7 +24,6 @@ namespace Interface
             dgvHistory.Focus();
             cbPage.Text = "1";
             cbRows.Text = "5";
-            ToFillInCheckListBox();
             loadEvents();
             this.cbRows.SelectedIndexChanged += cbRows_SelectedIndexChanged;
             this.cbPage.SelectedIndexChanged += new System.EventHandler(this.cbPage_SelectedIndexChanged);
@@ -41,58 +35,38 @@ namespace Interface
 
             if (!isValid)
             {
-                MessageBox.Show("Informe as informações que são necessárias para o relatório.", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Descreva qual atendimento foi realizado.", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (btnSave.Text == "Novo")
+            else if (cbEntryAndExit.Checked)
             {
-                ClearFields();
-                btnSave.Text = "Salvar";
-                return;
-            }
-
-            //PaefiService paefiService = new PaefiService();
-            try
-            {
-                //paefiService.id = serviceId;
-                //paefiService.dateInsertion = dtDate.Value;
-                //paefiService.insertionInPaefi = txtInsertionInPaefi.Text.Trim();
-                //paefiService.summaryDescriptionOfTheCase = txtDescription.Text.Trim();
-                //paefiService.entranceDoor = cbEntranceDoor.Text.Trim();
-                //paefiService.interventionsPerformed = txtInterventionsPerformed.Text.Trim();
-                //paefiService.typeOfBenefit = txtTypeBenefits.Text.Trim();
-                //paefiService.referralsMade = txtReferralsMade.Text.Trim();
-                //paefiService.summaryOfDemand = txtSummaryOfDemand.Text.Trim();
-                //paefiService.typeOfService = cbTypeService.Text.Trim();
-                //paefiService.caseOfViolation = "";
-                //paefiService.userId = userId;
-
-                //if (rbDistance.Checked)
-                //    paefiService.generalService = "A distância";
-                //else if (rbHomeVisit.Checked)
-                //    paefiService.generalService = "Visita domiciliar";
-                //else if (rbPresence.Checked)
-                //    paefiService.generalService = "Presencial";
-
-                //paefiService.isThereFollowUp = rbYesFollowUp.Checked;
-                //paefiService.doesThePatientHaveSpecialNeeds = rbYesThereIsANeed.Checked;
-
-                //foreach (var item in clbCaseOfViolation.CheckedItems)
-                //{
-                //    paefiService.caseOfViolation += $"{item};";
-                //}
-
-                //paefiService.Save();
-
-                loadEvents();
-                if (serviceId > 0)
+                if (dtTimeOfService.Value > dtDepartureTime.Value)
                 {
-                    ClearFields();
+                    MessageBox.Show("A hora de saída não pode ser menor que a hora do atendimento", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
+                else if (dtTimeOfService.Value == dtDepartureTime.Value)
+                {
+                    MessageBox.Show("A hora de saída não pode ser igual a hora do atendimento", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
 
-                btnSave.Text = "Novo";
+            Service service = new Service();
+            try
+            {
+                service.id = serviceId;
+                service.description = rtDescription.Text.Trim();
+                service.dateService = dtDateService.Value;
+                service.timeOfService = cbEntryAndExit.Checked ? dtTimeOfService.Value.ToString("HH:mm:ss") : "---";
+                service.departureTime = cbEntryAndExit.Checked ? dtDepartureTime.Value.ToString("HH:mm:ss") : "---";
+                service.userId = userId;
 
+                service.Save();
+
+                loadEvents();
+
+                ClearFields();
             }
             catch (Exception ex)
             {
@@ -109,36 +83,25 @@ namespace Interface
                 int quantRows = int.Parse(cbRows.Text);
                 int pageSelected = (page - 1) * quantRows;
 
-                //DataTable paefiServices = PaefiService.FindByUserId(userId, pageSelected, quantRows);
+                DataTable services = Service.FindByUserId(userId, pageSelected, quantRows);
 
-                //foreach (DataRow dr in paefiServices.Rows)
-                //{
-                //    int index = dgvHistory.Rows.Add();
-                //    dgvHistory.Rows[index].Cells[0].Value = Properties.Resources.edit;
-                //    dgvHistory.Rows[index].Cells[1].Value = Properties.Resources.delete;
-                //    dgvHistory.Rows[index].Cells[2].Value = dr["id"].ToString();
-                //    dgvHistory.Rows[index].Cells[3].Value = dr["date_insertion"].ToString();
-                //    dgvHistory.Rows[index].Cells[4].Value = dr["insertion_in_PAEFI"].ToString();
-                //    dgvHistory.Rows[index].Cells[5].Value = dr["general_services"].ToString();
-                //    dgvHistory.Rows[index].Cells[6].Value = dr["summary_of_demand"].ToString();
-                //    dgvHistory.Rows[index].Cells[7].Value = dr["entrance_door"].ToString();
-                //    dgvHistory.Rows[index].Cells[8].Value = dr["type_of_benefit"].ToString();
-                //    dgvHistory.Rows[index].Cells[9].Value = dr["case_of_violation"].ToString();
-                //    dgvHistory.Rows[index].Cells[10].Value = dr["is_there_follow_up"].ToString() == "1" ? "Sim" : "Não";
-                //    dgvHistory.Rows[index].Cells[11].Value = dr["does_the_patient_have_special_needs"].ToString() == "1" ? "Sim" : "Não";
-                //    dgvHistory.Rows[index].Cells[12].Value = dr["interventions_performed"].ToString();
-                //    dgvHistory.Rows[index].Cells[13].Value = dr["referrals_made"].ToString();
-                //    dgvHistory.Rows[index].Cells[14].Value = dr["summary_description_of_the_case"].ToString(); 
-                //    dgvHistory.Rows[index].Cells[15].Value = dr["type_of_service"].ToString();
-
-
-                //    dgvHistory.Rows[index].Selected = false;
-                //    dgvHistory.Rows[index].Height = 45;
-                //}
+                foreach (DataRow dr in services.Rows)
+                {
+                    int index = dgvHistory.Rows.Add();
+                    dgvHistory.Rows[index].Cells["ColEdit"].Value = Properties.Resources.edit;
+                    dgvHistory.Rows[index].Cells["ColDelete"].Value = Properties.Resources.delete;
+                    dgvHistory.Rows[index].Cells["ColId"].Value = dr["id"].ToString();
+                    dgvHistory.Rows[index].Cells["ColDescription"].Value = dr["description"].ToString();
+                    dgvHistory.Rows[index].Cells["ColDateService"].Value = dr["date_service"].ToString();
+                    dgvHistory.Rows[index].Cells["ColTimeOfService"].Value = dr["time_of_service"].ToString();
+                    dgvHistory.Rows[index].Cells["ColDepartureTime"].Value = dr["departure_time"].ToString();
+                    //    dgvHistory.Rows[index].Selected = false;
+                    dgvHistory.Rows[index].Height = 45;
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Houve um erro no sistema. Tente novamente mais tarde", "Creas Analytics", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Houve um erro no sistema. Tente novamente mais tarde", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -152,21 +115,31 @@ namespace Interface
             if (dgvHistory.CurrentCell.ColumnIndex == 0)
             {
                 ClearFields();
-                serviceId = int.Parse(dgvHistory.CurrentRow.Cells[2].Value.ToString());
-                var caseOfViolation = dgvHistory.CurrentRow.Cells[9].Value.ToString().Split(';');
+                serviceId = int.Parse(dgvHistory.CurrentRow.Cells["ColId"].Value.ToString());
+                rtDescription.Text = dgvHistory.CurrentRow.Cells["ColDescription"].Value.ToString();
+                dtDateService.Value = DateTime.Parse(dgvHistory.CurrentRow.Cells["ColDateService"].Value.ToString());
+                dtTimeOfService.Value = dgvHistory.CurrentRow.Cells["ColTimeOfService"].Value.ToString() != "---" ? DateTime.Parse(dgvHistory.CurrentRow.Cells["ColTimeOfService"].Value.ToString()) : DateTime.Now;
+                dtDepartureTime.Value = dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString() != "---" ? DateTime.Parse(dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString()) : DateTime.Now;
+                btnSave.Text = "Editar";
+                lkCancel.Visible = true;
 
+                if (dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString() == "---")
+                {
+                    cbEntryAndExit.Checked = false;
+                    cbEntryAndExit_CheckedChanged(sender, e);
+                }
             }
 
 
             if (dgvHistory.CurrentCell.ColumnIndex == 1)
             {
-                DialogResult dr = MessageBox.Show($"Deseja mesmo excluir este atendimento?", "CREAS Analytcs", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                DialogResult dr = MessageBox.Show($"Deseja mesmo excluir este atendimento?", "Serviço Central", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                 if (dr == DialogResult.Yes)
                 {
                     try
                     {
-                        //PaefiService.Delete(id);
+                        Service.Delete(id);
                         ClearFields();
                         loadEvents();
                     }
@@ -221,15 +194,6 @@ namespace Interface
 
         }
 
-        private void ToFillInCheckListBox()
-        {
-            //List<String> caseOfViolations = new List<String>(Settings.Default["caseOfViolations"].ToString().Split(';'));
-            //foreach (String caseOfViolation in caseOfViolations)
-            //{
-            //    clbCaseOfViolation.Items.Add(caseOfViolation);
-            //}
-        }
-
         private void UpdateComboBoxItems()
         {
             cbPage.Items.Clear();
@@ -244,7 +208,7 @@ namespace Interface
         private void CheckNumberOfPages(int numberRows)
         {
             PageData.quantityRowsSelected = numberRows;
-            //pageMaximum = PageData.SetPageQuantityServices(userId);
+            pageMaximum = PageData.SetPageQuantityServices(userId);
             if (pageMaximum > 1)
                 EnabledBtnArrowRight();
 
@@ -317,6 +281,11 @@ namespace Interface
         {
             serviceId = 0;
             btnSave.Text = "Salvar";
+            rtDescription.Clear();
+            dtDateService.Value = DateTime.Now;
+            dtTimeOfService.Value = DateTime.Now;
+            dtDepartureTime.Value = DateTime.Now;
+            lkCancel.Visible = false;
         }
 
         private void FrmCustomerService_KeyDown(object sender, KeyEventArgs e)
@@ -325,6 +294,25 @@ namespace Interface
                 btnSave_Click(sender, e);
             else if (e.Control && e.KeyCode == Keys.Right && btnArrowRight.Enabled) btnArrowRight_Click(sender, e);
             else if (e.Control && e.KeyCode == Keys.Left && btnArrowLeft.Enabled) btnArrowLeft_Click(sender, e);
+        }
+
+        private void cbEntryAndExit_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbEntryAndExit.Checked)
+            {
+                dtDepartureTime.Enabled = true;
+                dtTimeOfService.Enabled = true;
+            }
+            else
+            {
+                dtDepartureTime.Enabled = false;
+                dtTimeOfService.Enabled = false;
+            }
+        }
+
+        private void lkCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClearFields();
         }
 
         private void DisabledBtnArrowLeft()

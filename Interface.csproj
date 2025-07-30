@@ -73,12 +73,7 @@
     <Compile Include="Views\Service\FrmCustomerService.Designer.cs">
       <DependentUpon>FrmCustomerService.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Service\FrmService.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Service\FrmService.Designer.cs">
-      <DependentUpon>FrmService.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Views\Service\FrmService.cs" />
     <Compile Include="Views\User\FrmSaveUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +105,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Service\FrmCustomerService.resx">
       <DependentUpon>FrmCustomerService.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Service\FrmService.resx">
-      <DependentUpon>FrmService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\FrmSaveUser.resx">
       <DependentUpon>FrmSaveUser.cs</DependentUpon>

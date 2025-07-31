@@ -38,8 +38,11 @@
             this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -72,8 +75,9 @@
             this.usuárioToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.usuárioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuárioToolStripMenuItem.Image")));
             this.usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
-            this.usuárioToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.usuárioToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.U)));
+            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
             this.usuárioToolStripMenuItem.Text = "Usuário";
             this.usuárioToolStripMenuItem.Click += new System.EventHandler(this.usuárioToolStripMenuItem_Click);
             // 
@@ -92,8 +96,11 @@
             this.atendimentoToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.atendimentoToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("atendimentoToolStripMenuItem1.Image")));
             this.atendimentoToolStripMenuItem1.Name = "atendimentoToolStripMenuItem1";
-            this.atendimentoToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
+            this.atendimentoToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.A)));
+            this.atendimentoToolStripMenuItem1.Size = new System.Drawing.Size(222, 26);
             this.atendimentoToolStripMenuItem1.Text = "Atendimento";
+            this.atendimentoToolStripMenuItem1.Click += new System.EventHandler(this.atendimentoToolStripMenuItem1_Click);
             // 
             // configuraçãoToolStripMenuItem
             // 
@@ -137,12 +144,34 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 413);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 37);
+            this.panel1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(267, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(310, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Desenvolvido por Joelmir Rogério Carvalho";
+            // 
             // FrmCentralService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -155,6 +184,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,6 +202,8 @@
         private System.Windows.Forms.ToolStripMenuItem configuraçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajustarToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

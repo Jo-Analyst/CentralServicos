@@ -95,7 +95,6 @@ namespace Interface
                     dgvHistory.Rows[index].Cells["ColDateService"].Value = dr["date_service"].ToString();
                     dgvHistory.Rows[index].Cells["ColTimeOfService"].Value = dr["time_of_service"].ToString();
                     dgvHistory.Rows[index].Cells["ColDepartureTime"].Value = dr["departure_time"].ToString();
-                    //    dgvHistory.Rows[index].Selected = false;
                     dgvHistory.Rows[index].Height = 45;
                 }
             }

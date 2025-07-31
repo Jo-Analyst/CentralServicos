@@ -19,5 +19,10 @@ namespace Interface
         {
             Application.Exit();
         }
+
+        private void atendimentoToolStripMenuItem1_Click(object sender, System.EventArgs e)
+        {
+            new ServicesPerformed().ShowDialog();
+        }
     }
 }

@@ -34,6 +34,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsers));
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.ColADD = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.cbRows = new System.Windows.Forms.ComboBox();
@@ -47,14 +55,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnNewUser = new System.Windows.Forms.Button();
-            this.ColADD = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -118,6 +118,74 @@
             this.dgvUsers.TabStop = false;
             this.dgvUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellClick);
             this.dgvUsers.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellMouseEnter);
+            // 
+            // ColADD
+            // 
+            this.ColADD.HeaderText = "Adicionar ";
+            this.ColADD.Name = "ColADD";
+            this.ColADD.ReadOnly = true;
+            this.ColADD.ToolTipText = "Adicionar atendimento";
+            // 
+            // ColEdit
+            // 
+            this.ColEdit.HeaderText = "Editar";
+            this.ColEdit.Name = "ColEdit";
+            this.ColEdit.ReadOnly = true;
+            // 
+            // ColDelete
+            // 
+            this.ColDelete.HeaderText = "Excluir";
+            this.ColDelete.Name = "ColDelete";
+            this.ColDelete.ReadOnly = true;
+            // 
+            // ColId
+            // 
+            this.ColId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColId.HeaderText = "Id";
+            this.ColId.MinimumWidth = 6;
+            this.ColId.Name = "ColId";
+            this.ColId.ReadOnly = true;
+            this.ColId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColId.Visible = false;
+            this.ColId.Width = 26;
+            // 
+            // ColName
+            // 
+            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColName.HeaderText = "Nome";
+            this.ColName.MinimumWidth = 6;
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
+            // 
+            // ColCpf
+            // 
+            this.ColCpf.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColCpf.HeaderText = "CPF";
+            this.ColCpf.MinimumWidth = 6;
+            this.ColCpf.Name = "ColCpf";
+            this.ColCpf.ReadOnly = true;
+            this.ColCpf.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColCpf.Width = 47;
+            // 
+            // ColAddress
+            // 
+            this.ColAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColAddress.HeaderText = "Endereço";
+            this.ColAddress.MinimumWidth = 6;
+            this.ColAddress.Name = "ColAddress";
+            this.ColAddress.ReadOnly = true;
+            this.ColAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColAddress.Width = 82;
+            // 
+            // ColPhone
+            // 
+            this.ColPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColPhone.HeaderText = "Telefone";
+            this.ColPhone.MinimumWidth = 6;
+            this.ColPhone.Name = "ColPhone";
+            this.ColPhone.ReadOnly = true;
+            this.ColPhone.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColPhone.Width = 72;
             // 
             // panel1
             // 
@@ -223,6 +291,7 @@
             this.btnArrowRight.Enabled = false;
             this.btnArrowRight.FlatAppearance.BorderSize = 0;
             this.btnArrowRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArrowRight.Image = global::Interface.Properties.Resources.right_arrow_grey;
             this.btnArrowRight.Location = new System.Drawing.Point(925, 6);
             this.btnArrowRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnArrowRight.Name = "btnArrowRight";
@@ -240,6 +309,7 @@
             this.btnArrowLeft.Enabled = false;
             this.btnArrowLeft.FlatAppearance.BorderSize = 0;
             this.btnArrowLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArrowLeft.Image = global::Interface.Properties.Resources.left_arrow_grey;
             this.btnArrowLeft.Location = new System.Drawing.Point(879, 6);
             this.btnArrowLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnArrowLeft.Name = "btnArrowLeft";
@@ -288,74 +358,6 @@
             this.toolTip.SetToolTip(this.btnNewUser, "Cadastrar novo usuário - {CTRL + N]");
             this.btnNewUser.UseVisualStyleBackColor = true;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
-            // 
-            // ColADD
-            // 
-            this.ColADD.HeaderText = "Adicionar ";
-            this.ColADD.Name = "ColADD";
-            this.ColADD.ReadOnly = true;
-            this.ColADD.ToolTipText = "Adicionar atendimento";
-            // 
-            // ColEdit
-            // 
-            this.ColEdit.HeaderText = "Editar";
-            this.ColEdit.Name = "ColEdit";
-            this.ColEdit.ReadOnly = true;
-            // 
-            // ColDelete
-            // 
-            this.ColDelete.HeaderText = "Excluir";
-            this.ColDelete.Name = "ColDelete";
-            this.ColDelete.ReadOnly = true;
-            // 
-            // ColId
-            // 
-            this.ColId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColId.HeaderText = "Id";
-            this.ColId.MinimumWidth = 6;
-            this.ColId.Name = "ColId";
-            this.ColId.ReadOnly = true;
-            this.ColId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColId.Visible = false;
-            this.ColId.Width = 26;
-            // 
-            // ColName
-            // 
-            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColName.HeaderText = "Nome";
-            this.ColName.MinimumWidth = 6;
-            this.ColName.Name = "ColName";
-            this.ColName.ReadOnly = true;
-            // 
-            // ColCpf
-            // 
-            this.ColCpf.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColCpf.HeaderText = "CPF";
-            this.ColCpf.MinimumWidth = 6;
-            this.ColCpf.Name = "ColCpf";
-            this.ColCpf.ReadOnly = true;
-            this.ColCpf.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColCpf.Width = 47;
-            // 
-            // ColAddress
-            // 
-            this.ColAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColAddress.HeaderText = "Endereço";
-            this.ColAddress.MinimumWidth = 6;
-            this.ColAddress.Name = "ColAddress";
-            this.ColAddress.ReadOnly = true;
-            this.ColAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColAddress.Width = 82;
-            // 
-            // ColPhone
-            // 
-            this.ColPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColPhone.HeaderText = "Telefone";
-            this.ColPhone.MinimumWidth = 6;
-            this.ColPhone.Name = "ColPhone";
-            this.ColPhone.ReadOnly = true;
-            this.ColPhone.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColPhone.Width = 72;
             // 
             // FrmUsers
             // 

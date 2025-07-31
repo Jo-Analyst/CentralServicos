@@ -103,14 +103,34 @@ namespace DataBase
             }
         }
 
-        static public int CountQuantityServices(int year)
+        static public int CountQuantityServicesByUserId(int userId)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     connection.Open();
-                    string sql = $"SELECT COUNT(id) AS quantity FROM Services WHERE date_service LIKE '%{year}%'";
+                    string sql = $"SELECT COUNT(id) AS quantity FROM Services WHERE user_id = {userId}";
+                    var command = new SqlCommand(sql, connection);
+                    command.CommandText = sql;
+
+                    return Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        static public int CountQuantityServicesByYear(string year)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    connection.Open();
+                    string sql = $"SELECT COUNT(id) AS quantity FROM Services WHERE CONVERT(VARCHAR, date_service, 103) LIKE '%{year}%'";
                     var command = new SqlCommand(sql, connection);
                     command.CommandText = sql;
 

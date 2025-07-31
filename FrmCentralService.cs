@@ -22,7 +22,7 @@ namespace Interface
 
         private void atendimentoToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
-            new ServicesPerformed().ShowDialog();
+            new FrmServicesPerformed().ShowDialog();
         }
     }
 }

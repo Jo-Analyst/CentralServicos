@@ -27,6 +27,8 @@ namespace Interface
             loadEvents();
             this.cbRows.SelectedIndexChanged += cbRows_SelectedIndexChanged;
             this.cbPage.SelectedIndexChanged += new System.EventHandler(this.cbPage_SelectedIndexChanged);
+            btnArrowLeft.Image = Resources.left_arrow_grey;
+            btnArrowLeft.Visible = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

@@ -7,11 +7,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Interface
 {
-    public partial class ServicesPerformed : Form
+    public partial class FrmServicesPerformed : Form
     {
         string month;
-       
-        public ServicesPerformed()
+        int page = 1, pageMaximum = 1;
+
+        public FrmServicesPerformed()
         {
             InitializeComponent();
         }
@@ -137,11 +138,22 @@ namespace Interface
         {
             GetMonthByIndex();
             LoadEvents();
+            DisabledButtonPages();
+        }
+
+        private void DisabledButtonPages()
+        {
+            if (pageMaximum <= 1)
+            {
+                DisabledBtnArrowLeft();
+                DisabledBtnArrowRight();
+            }
         }
 
         private void cbYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadEvents();
+            DisabledButtonPages();
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -158,13 +170,12 @@ namespace Interface
         private void CheckNumberOfPages(int numberRows)
         {
             PageData.quantityRowsSelected = numberRows;
-            pageMaximum = PageData.SetPageQuantityServices();
+            pageMaximum = PageData.SetPageQuantityServicesByDate(cbMonth.SelectedIndex == 0 ? cbYear.Text : $"{month}/{cbYear.SelectedItem.ToString()}");
             if (pageMaximum > 1)
                 EnabledBtnArrowRight();
 
         }
 
-        int page = 1, pageMaximum = 1;
         private void cbPage_SelectedIndexChanged(object sender, EventArgs e)
         {
             page = int.Parse(cbPage.Text);

@@ -67,11 +67,11 @@
     <Compile Include="FrmLoading.Designer.cs">
       <DependentUpon>FrmLoading.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Report\ServicesPerformed.cs">
+    <Compile Include="Views\Report\FrmServicesPerformed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Report\ServicesPerformed.Designer.cs">
-      <DependentUpon>ServicesPerformed.cs</DependentUpon>
+    <Compile Include="Views\Report\FrmServicesPerformed.Designer.cs">
+      <DependentUpon>FrmServicesPerformed.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Service\FrmCustomerService.cs">
       <SubType>Form</SubType>
@@ -109,8 +109,8 @@
     <EmbeddedResource Include="FrmLoading.resx">
       <DependentUpon>FrmLoading.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Report\ServicesPerformed.resx">
-      <DependentUpon>ServicesPerformed.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Report\FrmServicesPerformed.resx">
+      <DependentUpon>FrmServicesPerformed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Service\FrmCustomerService.resx">
       <DependentUpon>FrmCustomerService.cs</DependentUpon>

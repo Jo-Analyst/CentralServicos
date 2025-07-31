@@ -1,6 +1,6 @@
 ﻿namespace Interface
 {
-    partial class ServicesPerformed
+    partial class FrmServicesPerformed
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServicesPerformed));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServicesPerformed));
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNameUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTimeOfService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDepartureTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbYear = new System.Windows.Forms.ComboBox();
@@ -51,17 +56,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblDescriptionRow = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNameUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTimeOfService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDepartureTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvReport
+            // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.AllowUserToDeleteRows = false;
@@ -73,14 +73,14 @@
             this.dgvData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.ColumnHeadersHeight = 40;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColDate,
@@ -88,33 +88,79 @@
             this.ColDescription,
             this.ColTimeOfService,
             this.ColDepartureTime});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvData.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvData.EnableHeadersVisualStyles = false;
             this.dgvData.Location = new System.Drawing.Point(14, 95);
             this.dgvData.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.dgvData.MultiSelect = false;
-            this.dgvData.Name = "dgvReport";
+            this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(59)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(59)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.RowHeadersVisible = false;
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.Size = new System.Drawing.Size(701, 366);
             this.dgvData.TabIndex = 1;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReport_CellClick);
+            // 
+            // ColDate
+            // 
+            this.ColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ColDate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColDate.HeaderText = "Data do Atendimento";
+            this.ColDate.MinimumWidth = 6;
+            this.ColDate.Name = "ColDate";
+            this.ColDate.ReadOnly = true;
+            this.ColDate.Width = 159;
+            // 
+            // ColNameUser
+            // 
+            this.ColNameUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColNameUser.HeaderText = "Usuário(a)";
+            this.ColNameUser.Name = "ColNameUser";
+            this.ColNameUser.ReadOnly = true;
+            this.ColNameUser.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColNameUser.Width = 75;
+            // 
+            // ColDescription
+            // 
+            this.ColDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColDescription.HeaderText = "Descrição";
+            this.ColDescription.Name = "ColDescription";
+            this.ColDescription.ReadOnly = true;
+            this.ColDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColTimeOfService
+            // 
+            this.ColTimeOfService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColTimeOfService.HeaderText = "Hora do atendimento";
+            this.ColTimeOfService.Name = "ColTimeOfService";
+            this.ColTimeOfService.ReadOnly = true;
+            this.ColTimeOfService.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColTimeOfService.Width = 140;
+            // 
+            // ColDepartureTime
+            // 
+            this.ColDepartureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDepartureTime.HeaderText = "Hora da Saída";
+            this.ColDepartureTime.Name = "ColDepartureTime";
+            this.ColDepartureTime.ReadOnly = true;
+            this.ColDepartureTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // groupBox1
             // 
@@ -218,7 +264,7 @@
             this.btnArrowRight.Enabled = false;
             this.btnArrowRight.FlatAppearance.BorderSize = 0;
             this.btnArrowRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArrowRight.Location = new System.Drawing.Point(432, 8);
+            this.btnArrowRight.Location = new System.Drawing.Point(432, 6);
             this.btnArrowRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnArrowRight.Name = "btnArrowRight";
             this.btnArrowRight.Size = new System.Drawing.Size(38, 35);
@@ -235,7 +281,7 @@
             this.btnArrowLeft.Enabled = false;
             this.btnArrowLeft.FlatAppearance.BorderSize = 0;
             this.btnArrowLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArrowLeft.Location = new System.Drawing.Point(386, 8);
+            this.btnArrowLeft.Location = new System.Drawing.Point(386, 6);
             this.btnArrowLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnArrowLeft.Name = "btnArrowLeft";
             this.btnArrowLeft.Size = new System.Drawing.Size(38, 35);
@@ -249,6 +295,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.cbRows);
             this.panel1.Controls.Add(this.cbPage);
@@ -267,7 +314,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Location = new System.Drawing.Point(179, 6);
+            this.label8.Location = new System.Drawing.Point(179, 4);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(2, 40);
@@ -302,7 +349,7 @@
             this.cbPage.FormattingEnabled = true;
             this.cbPage.IntegralHeight = false;
             this.cbPage.ItemHeight = 20;
-            this.cbPage.Location = new System.Drawing.Point(266, 13);
+            this.cbPage.Location = new System.Drawing.Point(266, 11);
             this.cbPage.Margin = new System.Windows.Forms.Padding(19, 17, 19, 17);
             this.cbPage.Name = "cbPage";
             this.cbPage.Size = new System.Drawing.Size(97, 28);
@@ -314,7 +361,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(197, 16);
+            this.label9.Location = new System.Drawing.Point(197, 14);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 20);
@@ -325,7 +372,7 @@
             // 
             this.lblDescriptionRow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDescriptionRow.AutoSize = true;
-            this.lblDescriptionRow.Location = new System.Drawing.Point(189, 19);
+            this.lblDescriptionRow.Location = new System.Drawing.Point(189, 17);
             this.lblDescriptionRow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescriptionRow.Name = "lblDescriptionRow";
             this.lblDescriptionRow.Size = new System.Drawing.Size(0, 20);
@@ -335,58 +382,12 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 16);
+            this.label10.Location = new System.Drawing.Point(12, 14);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 20);
             this.label10.TabIndex = 11;
             this.label10.Text = "Exibir";
-            // 
-            // ColDate
-            // 
-            this.ColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle10.Format = "d";
-            dataGridViewCellStyle10.NullValue = null;
-            this.ColDate.DefaultCellStyle = dataGridViewCellStyle10;
-            this.ColDate.HeaderText = "Data do Atendimento";
-            this.ColDate.MinimumWidth = 6;
-            this.ColDate.Name = "ColDate";
-            this.ColDate.ReadOnly = true;
-            this.ColDate.Width = 159;
-            // 
-            // ColNameUser
-            // 
-            this.ColNameUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColNameUser.HeaderText = "Usuário(a)";
-            this.ColNameUser.Name = "ColNameUser";
-            this.ColNameUser.ReadOnly = true;
-            this.ColNameUser.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColNameUser.Width = 75;
-            // 
-            // ColDescription
-            // 
-            this.ColDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColDescription.HeaderText = "Descrição";
-            this.ColDescription.Name = "ColDescription";
-            this.ColDescription.ReadOnly = true;
-            this.ColDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColTimeOfService
-            // 
-            this.ColTimeOfService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColTimeOfService.HeaderText = "Hora do atendimento";
-            this.ColTimeOfService.Name = "ColTimeOfService";
-            this.ColTimeOfService.ReadOnly = true;
-            this.ColTimeOfService.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColTimeOfService.Width = 140;
-            // 
-            // ColDepartureTime
-            // 
-            this.ColDepartureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColDepartureTime.HeaderText = "Hora da Saída";
-            this.ColDepartureTime.Name = "ColDepartureTime";
-            this.ColDepartureTime.ReadOnly = true;
-            this.ColDepartureTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ServicesPerformed
             // 

@@ -29,6 +29,26 @@ namespace Interface
             this.cbPage.SelectedIndexChanged += new System.EventHandler(this.cbPage_SelectedIndexChanged);
             btnArrowLeft.Image = Resources.left_arrow_grey;
             btnArrowLeft.Visible = true;
+            loadSectors();
+        }
+
+        private void loadSectors()
+        {
+           DataTable sectors = Service.GetSectors();
+            if (sectors.Rows.Count > 0)
+            {
+                cbSectors.Items.Clear();
+                foreach (DataRow dr in sectors.Rows)
+                {
+                    cbSectors.Items.Add(dr["sector"].ToString().Trim());
+                }
+                cbSectors.SelectedIndex = 0;
+                cbSectors.Items.RemoveAt(0); // Remove the first item which is empty
+            }
+            else
+            {
+                MessageBox.Show("Nenhum setor cadastrado. Entre em contato com o administrador do sistema.", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -38,6 +58,11 @@ namespace Interface
             if (!isValid)
             {
                 MessageBox.Show("Descreva qual atendimento foi realizado.", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(cbSectors.Text))
+            {
+                MessageBox.Show("Selecione um setor para o atendimento.", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (cbEntryAndExit.Checked)
@@ -53,8 +78,9 @@ namespace Interface
                     return;
                 }
             }
+            
 
-            Service service = new Service();
+                Service service = new Service();
             try
             {
                 service.id = serviceId;
@@ -62,9 +88,11 @@ namespace Interface
                 service.dateService = dtDateService.Value;
                 service.timeOfService = cbEntryAndExit.Checked ? dtTimeOfService.Value.ToString("HH:mm:ss") : "---";
                 service.departureTime = cbEntryAndExit.Checked ? dtDepartureTime.Value.ToString("HH:mm:ss") : "---";
+                service.sector = cbSectors.Text.Trim();
                 service.userId = userId;
 
                 service.Save();
+                loadSectors();
 
                 loadEvents();
 
@@ -97,6 +125,8 @@ namespace Interface
                     dgvHistory.Rows[index].Cells["ColDateService"].Value = dr["date_service"].ToString();
                     dgvHistory.Rows[index].Cells["ColTimeOfService"].Value = dr["time_of_service"].ToString();
                     dgvHistory.Rows[index].Cells["ColDepartureTime"].Value = dr["departure_time"].ToString();
+                    dgvHistory.Rows[index].Cells["ColSector"].Value = dr["sector"].ToString();
+                    dgvHistory.Rows[index].Selected = false;
                     dgvHistory.Rows[index].Height = 45;
                 }
             }
@@ -121,6 +151,7 @@ namespace Interface
                 dtDateService.Value = DateTime.Parse(dgvHistory.CurrentRow.Cells["ColDateService"].Value.ToString());
                 dtTimeOfService.Value = dgvHistory.CurrentRow.Cells["ColTimeOfService"].Value.ToString() != "---" ? DateTime.Parse(dgvHistory.CurrentRow.Cells["ColTimeOfService"].Value.ToString()) : DateTime.Now;
                 dtDepartureTime.Value = dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString() != "---" ? DateTime.Parse(dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString()) : DateTime.Now;
+                cbSectors.Text = dgvHistory.CurrentRow.Cells["ColSector"].Value.ToString();
                 btnSave.Text = "Editar";
                 lkCancel.Visible = true;
 

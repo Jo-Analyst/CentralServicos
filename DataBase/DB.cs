@@ -48,6 +48,7 @@ namespace DataBase
                 "    [date_service] Date NULL," +
                 "    [time_of_service] VARCHAR(10) NULL," +
                 "    [departure_time] VARCHAR(10) NULL," +
+                "    [sector] VARCHAR (100)  NULL," +
                 "    [user_id] INT NOT NULL," +
                 "    FOREIGN KEY ([user_id]) REFERENCES [dbo].[users](id) ON DELETE CASCADE );";
 

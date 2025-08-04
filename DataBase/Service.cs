@@ -11,6 +11,7 @@ namespace DataBase
         public DateTime dateService { get; set; }
         public string timeOfService { get; set; }
         public string departureTime { get; set; }
+        public string sector { get; set; }
         public int userId { get; set; }
 
         public void Save()
@@ -19,14 +20,15 @@ namespace DataBase
             {
                 connection.Open();
                 string sql = id == 0
-                ? "INSERT INTO Services (description, date_service, user_id,  time_of_service, departure_time) VALUES (@description, @date_service, @user_id, @time_of_service, @departure_time); SELECT @@identity"
-                : "UPDATE Services SET description = @description, date_service = @date_service, user_id = @user_id, time_of_service = @time_of_service, departure_time = @departure_time  WHERE id = @id";
+                ? "INSERT INTO Services (description, date_service, user_id,  time_of_service, departure_time, sector) VALUES (@description, @date_service, @user_id, @time_of_service, @departure_time, @sector); SELECT @@identity"
+                : "UPDATE Services SET description = @description, date_service = @date_service, user_id = @user_id, time_of_service = @time_of_service, departure_time = @departure_time, sector = @sector WHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@description", description);
                 command.Parameters.AddWithValue("@time_of_service", timeOfService);
                 command.Parameters.AddWithValue("@departure_time", departureTime);
                 command.Parameters.AddWithValue("@date_service", dateService);
+                command.Parameters.AddWithValue("@sector", sector);
                 command.Parameters.AddWithValue("@user_id", userId);
                 command.CommandText = sql;
                 try
@@ -49,7 +51,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT id, description, CONVERT(VARCHAR, date_service, 103) AS date_service, time_of_service, departure_time, user_id FROM Services WHERE user_id = {user_id} ORDER BY id DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
+                    string sql = $"SELECT id, description, CONVERT(VARCHAR, date_service, 103) AS date_service, time_of_service, departure_time, Services.sector, user_id FROM Services WHERE user_id = {user_id} ORDER BY id DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -69,7 +71,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT Services.description, CONVERT(VARCHAR, Services.date_service, 103) AS date_service, Services.time_of_service, Services.departure_time, Users.name FROM Services INNER JOIN Users ON Users.id = Services.user_id WHERE CONVERT(VARCHAR, date_service, 103) LIKE '%{month}/{year}%' ORDER BY Services.date_service DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
+                    string sql = $"SELECT Services.description, CONVERT(VARCHAR, Services.date_service, 103) AS date_service, Services.time_of_service, Services.departure_time, Services.sector, Users.name FROM Services INNER JOIN Users ON Users.id = Services.user_id WHERE CONVERT(VARCHAR, date_service, 103) LIKE '%{month}/{year}%' ORDER BY Services.date_service DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -89,7 +91,27 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT Services.description, CONVERT(VARCHAR, Services.date_service, 103) AS date_service, Services.time_of_service, Services.departure_time, Users.name FROM Services INNER JOIN Users ON Users.id = Services.user_id WHERE date_service LIKE '%{year}%' ORDER BY Services.date_service DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
+                    string sql = $"SELECT Services.description, CONVERT(VARCHAR, Services.date_service, 103) AS date_service, Services.time_of_service, Services.departure_time, Services.sector, Users.name FROM Services INNER JOIN Users ON Users.id = Services.user_id WHERE date_service LIKE '%{year}%' ORDER BY Services.date_service DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+       
+        static public DataTable GetSectors()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    string sql = $"SELECT DISTINCT sector FROM Services;";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

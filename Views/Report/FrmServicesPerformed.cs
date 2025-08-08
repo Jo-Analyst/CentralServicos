@@ -1,4 +1,5 @@
-﻿using DataBase;
+﻿using CentralServicos.Views.Report;
+using DataBase;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -159,13 +160,47 @@ namespace Interface
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            //new FrmChart(listCaseVioliations).ShowDialog();
+            new FrmReportService(cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%").ShowDialog();
         }
 
         private void FrmServicePerfomed_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.P)
                 btnPrint_Click(sender, e);
+        }
+
+        private string GetSelectedMonthDescription()
+        {
+            switch (cbMonth.SelectedIndex)
+            {
+                case 1:
+                    return "01";
+                case 2:
+                    return "02";
+                case 3:
+                    return "03";
+                case 4:
+                    return "04";
+                case 5:
+                    return "05";
+                case 6:
+                    return "06";
+                case 7:
+                    return "07";
+                case 8:
+                    return "08";
+                case 9:
+                    return "09";
+                case 10:
+                    return "10";
+                case 11:
+                    return "11";
+                case 12:
+                    return "12";
+                default:
+                    return string.Empty;
+            }
+
         }
 
         private void CheckNumberOfPages(int numberRows)

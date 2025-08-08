@@ -48,6 +48,14 @@
             this.btnArrowRight = new System.Windows.Forms.Button();
             this.btnArrowLeft = new System.Windows.Forms.Button();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
+            this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColSector = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDateService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTimeOfService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDepartureTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dtDepartureTime = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,14 +69,6 @@
             this.lkCancel = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.cbSectors = new System.Windows.Forms.ComboBox();
-            this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColSector = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDateService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTimeOfService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDepartureTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
@@ -320,6 +320,69 @@
             this.dgvHistory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistory_CellClick);
             this.dgvHistory.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistory_CellMouseEnter);
             // 
+            // ColEdit
+            // 
+            this.ColEdit.HeaderText = "Editar";
+            this.ColEdit.Name = "ColEdit";
+            this.ColEdit.ReadOnly = true;
+            // 
+            // ColDelete
+            // 
+            this.ColDelete.HeaderText = "Excluir";
+            this.ColDelete.Name = "ColDelete";
+            this.ColDelete.ReadOnly = true;
+            // 
+            // ColId
+            // 
+            this.ColId.HeaderText = "ID";
+            this.ColId.Name = "ColId";
+            this.ColId.ReadOnly = true;
+            this.ColId.Visible = false;
+            // 
+            // ColDescription
+            // 
+            this.ColDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDescription.HeaderText = "Descrição";
+            this.ColDescription.Name = "ColDescription";
+            this.ColDescription.ReadOnly = true;
+            this.ColDescription.Width = 105;
+            // 
+            // ColSector
+            // 
+            this.ColSector.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColSector.HeaderText = "Setor";
+            this.ColSector.Name = "ColSector";
+            this.ColSector.ReadOnly = true;
+            this.ColSector.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColSector.Width = 52;
+            // 
+            // ColDateService
+            // 
+            this.ColDateService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ColDateService.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColDateService.HeaderText = "Data do Atendimento";
+            this.ColDateService.Name = "ColDateService";
+            this.ColDateService.ReadOnly = true;
+            this.ColDateService.Width = 180;
+            // 
+            // ColTimeOfService
+            // 
+            this.ColTimeOfService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColTimeOfService.HeaderText = "Hora do Atendimento";
+            this.ColTimeOfService.Name = "ColTimeOfService";
+            this.ColTimeOfService.ReadOnly = true;
+            this.ColTimeOfService.Width = 180;
+            // 
+            // ColDepartureTime
+            // 
+            this.ColDepartureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDepartureTime.HeaderText = "Hora da saída";
+            this.ColDepartureTime.Name = "ColDepartureTime";
+            this.ColDepartureTime.ReadOnly = true;
+            this.ColDepartureTime.Width = 131;
+            // 
             // dtDepartureTime
             // 
             this.dtDepartureTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -448,9 +511,9 @@
             this.label4.Location = new System.Drawing.Point(313, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 18);
+            this.label4.Size = new System.Drawing.Size(46, 18);
             this.label4.TabIndex = 83;
-            this.label4.Text = "Sertor";
+            this.label4.Text = "Setor";
             // 
             // cbSectors
             // 
@@ -462,69 +525,6 @@
             this.cbSectors.Name = "cbSectors";
             this.cbSectors.Size = new System.Drawing.Size(365, 26);
             this.cbSectors.TabIndex = 84;
-            // 
-            // ColEdit
-            // 
-            this.ColEdit.HeaderText = "Editar";
-            this.ColEdit.Name = "ColEdit";
-            this.ColEdit.ReadOnly = true;
-            // 
-            // ColDelete
-            // 
-            this.ColDelete.HeaderText = "Excluir";
-            this.ColDelete.Name = "ColDelete";
-            this.ColDelete.ReadOnly = true;
-            // 
-            // ColId
-            // 
-            this.ColId.HeaderText = "ID";
-            this.ColId.Name = "ColId";
-            this.ColId.ReadOnly = true;
-            this.ColId.Visible = false;
-            // 
-            // ColDescription
-            // 
-            this.ColDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColDescription.HeaderText = "Descrição";
-            this.ColDescription.Name = "ColDescription";
-            this.ColDescription.ReadOnly = true;
-            this.ColDescription.Width = 105;
-            // 
-            // ColSector
-            // 
-            this.ColSector.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColSector.HeaderText = "Setor";
-            this.ColSector.Name = "ColSector";
-            this.ColSector.ReadOnly = true;
-            this.ColSector.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColSector.Width = 52;
-            // 
-            // ColDateService
-            // 
-            this.ColDateService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.ColDateService.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColDateService.HeaderText = "Data do Atendimento";
-            this.ColDateService.Name = "ColDateService";
-            this.ColDateService.ReadOnly = true;
-            this.ColDateService.Width = 180;
-            // 
-            // ColTimeOfService
-            // 
-            this.ColTimeOfService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColTimeOfService.HeaderText = "Hora do Atendimento";
-            this.ColTimeOfService.Name = "ColTimeOfService";
-            this.ColTimeOfService.ReadOnly = true;
-            this.ColTimeOfService.Width = 180;
-            // 
-            // ColDepartureTime
-            // 
-            this.ColDepartureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColDepartureTime.HeaderText = "Hora da saída";
-            this.ColDepartureTime.Name = "ColDepartureTime";
-            this.ColDepartureTime.ReadOnly = true;
-            this.ColDepartureTime.Width = 131;
             // 
             // FrmCustomerService
             // 

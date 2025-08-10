@@ -46,19 +46,19 @@
 //        {
 //            if (string.IsNullOrWhiteSpace(rtDescription.Text))
 //            {
-//                MessageBox.Show("Faça a descrição do atendimento", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+//                MessageBox.Show("Faça a descrição do atendimento", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 //                return;
             
 //            }
 
 //            if(dtTimeOfService.Value > dtDepartureTime.Value)
 //            {
-//                MessageBox.Show("A hora de saída não pode ser menor que a hora do atendimento", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+//                MessageBox.Show("A hora de saída não pode ser menor que a hora do atendimento", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 //                return;
 //            }
 //            else if (dtTimeOfService.Value == dtDepartureTime.Value)
 //            {
-//                MessageBox.Show("A hora de saída não pode ser igual a hora do atendimento", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+//                MessageBox.Show("A hora de saída não pode ser igual a hora do atendimento", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 //                return;
 //            }
 

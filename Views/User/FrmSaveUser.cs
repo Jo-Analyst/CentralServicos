@@ -34,7 +34,7 @@ namespace Interface
 
                 if (string.IsNullOrWhiteSpace(txtName.Text))
                 {
-                    MessageBox.Show("Insira o nome do Usuário", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Insira o nome do Usuário", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
@@ -42,13 +42,13 @@ namespace Interface
                 {
                     if (!CPF.Validate(mkCPF.Text))
                     {
-                        MessageBox.Show("CPF inválido", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("CPF inválido", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
 
                     else if (User.FindByCpfForUser(Security.Cry(mkCPF.Text), userId).Rows.Count > 0)
                     {
-                        MessageBox.Show("Este CPF já está cadastrado", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Este CPF já está cadastrado", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }

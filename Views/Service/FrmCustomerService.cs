@@ -47,7 +47,7 @@ namespace Interface
             }
             else
             {
-                MessageBox.Show("Nenhum setor cadastrado. Entre em contato com o administrador do sistema.", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nenhum setor cadastrado. Entre em contato com o administrador do sistema.", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -57,24 +57,24 @@ namespace Interface
 
             if (!isValid)
             {
-                MessageBox.Show("Descreva qual atendimento foi realizado.", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Descreva qual atendimento foi realizado.", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (string.IsNullOrWhiteSpace(cbSectors.Text))
             {
-                MessageBox.Show("Selecione um setor para o atendimento.", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um setor para o atendimento.", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (cbEntryAndExit.Checked)
             {
                 if (dtTimeOfService.Value > dtDepartureTime.Value)
                 {
-                    MessageBox.Show("A hora de saída não pode ser menor que a hora do atendimento", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("A hora de saída não pode ser menor que a hora do atendimento", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
                 else if (dtTimeOfService.Value == dtDepartureTime.Value)
                 {
-                    MessageBox.Show("A hora de saída não pode ser igual a hora do atendimento", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("A hora de saída não pode ser igual a hora do atendimento", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
@@ -132,7 +132,7 @@ namespace Interface
             }
             catch (Exception)
             {
-                MessageBox.Show("Houve um erro no sistema. Tente novamente mais tarde", "Serviço Central", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Houve um erro no sistema. Tente novamente mais tarde", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -168,7 +168,7 @@ namespace Interface
 
             if (dgvHistory.CurrentCell.ColumnIndex == 1)
             {
-                DialogResult dr = MessageBox.Show($"Deseja mesmo excluir este atendimento?", "Serviço Central", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                DialogResult dr = MessageBox.Show($"Deseja mesmo excluir este atendimento?", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                 if (dr == DialogResult.Yes)
                 {

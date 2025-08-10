@@ -78,6 +78,7 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils\CPF.cs" />
     <Compile Include="Utils\PageData.cs" />
+    <Compile Include="Utils\PrintRDLC.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="FrmLoading.cs">
       <SubType>Form</SubType>
@@ -112,6 +113,18 @@
       <DependentUpon>FrmCustomerService.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Service\FrmService.cs" />
+    <Compile Include="Views\Setting\FrmBackupAndRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Setting\FrmBackupAndRestore.designer.cs">
+      <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Setting\FrmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Setting\FrmSetting.Designer.cs">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\User\FrmSaveUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +163,12 @@
     <EmbeddedResource Include="Views\Report\Relatório do Atendimento Diário.rdlc" />
     <EmbeddedResource Include="Views\Service\FrmCustomerService.resx">
       <DependentUpon>FrmCustomerService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setting\FrmBackupAndRestore.resx">
+      <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setting\FrmSetting.resx">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\FrmSaveUser.resx">
       <DependentUpon>FrmSaveUser.cs</DependentUpon>

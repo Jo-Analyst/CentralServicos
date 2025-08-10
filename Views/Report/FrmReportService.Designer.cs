@@ -51,7 +51,7 @@ namespace Interface
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "dsService";
             reportDataSource1.Value = this.dtServiceBindingSource;
-            reportDataSource2.Name = "dtQuantityServices";
+            reportDataSource2.Name = "dsQuantityServices";
             reportDataSource2.Value = this.dtQuantityServicesBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);

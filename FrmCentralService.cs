@@ -24,5 +24,15 @@ namespace Interface
         {
             new FrmServicesPerformed().ShowDialog();
         }
+
+        private void backupToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            new FrmBackupAndRestore().ShowDialog();
+        }
+
+        private void ajustarToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            new FrmSetting().ShowDialog();
+        }
     }
 }

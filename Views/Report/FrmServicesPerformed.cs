@@ -1,5 +1,10 @@
-﻿using CentralServicos.Views.Report;
+﻿using CentralServicos.Properties;
+using CentralServicos.Views.Report;
+using CentralServicos.Views.Report.Data;
+using CentralServicos.Views.Report.Data.DsServiceTableAdapters;
 using DataBase;
+using Microsoft.Reporting.WinForms;
+using Microsoft.ReportingServices.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,6 +17,7 @@ namespace Interface
     {
         string month;
         int page = 1, pageMaximum = 1;
+        bool isPrintDirect = bool.Parse(Settings.Default["print_directory_direct"].ToString());
 
         public FrmServicesPerformed()
         {
@@ -20,6 +26,8 @@ namespace Interface
 
         private void FrmServicesPerformed_Load(object sender, EventArgs e)
         {
+            btnPrint.Text = isPrintDirect ? "Imprimir" : "Visualizar";
+
             for (int i = DateTime.Now.Year; i >= 2023; i--)
             {
                 cbYear.Items.Add(i.ToString());
@@ -34,7 +42,6 @@ namespace Interface
             this.cbPage.SelectedIndexChanged += new EventHandler(this.cbPage_SelectedIndexChanged);
             this.cbYear.SelectedIndexChanged += new EventHandler(this.cbYear_SelectedIndexChanged);
             this.cbMonth.SelectedIndexChanged += new System.EventHandler(this.cbMonth_SelectedIndexChanged);
-
         }
 
         private void cbRows_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,6 +59,7 @@ namespace Interface
             CheckNumberOfPages(int.Parse(cbRows.SelectedItem.ToString()));
             UpdateComboBoxItems();
             LoadData();
+            btnPrint.Enabled = dgvData.Rows.Count > 0;
         }
 
         private void UpdateComboBoxItems()
@@ -160,12 +168,46 @@ namespace Interface
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            new FrmReportService(cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%").ShowDialog();
+            try
+            {
+               isPrintDirect =  bool.Parse(Settings.Default["print_directory_direct"].ToString());
+
+                if (isPrintDirect)
+                {
+                    PrintReport();
+                }
+                else
+                {
+                new FrmReportService(cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%").ShowDialog();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Houve um erro ao tentar imprimir o relatório. Detalhes: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PrintReport()
+        {
+            DtServiceTableAdapter dtServiceTableAdapter = new DtServiceTableAdapter();
+            dtQuantityServicesTableAdapter dtQuantityServicesTableAdapter = new dtQuantityServicesTableAdapter();
+            DsService dsService = new DsService();
+
+            dtServiceTableAdapter.Fill(dsService.DtService, cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%");
+            dtQuantityServicesTableAdapter.Fill(dsService.dtQuantityServices, cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%");
+
+            LocalReport localReport = new LocalReport();
+            localReport.ReportEmbeddedResource = "CentralServicos.Views.Report.Relatório do Atendimento Diário.rdlc";
+            localReport.DataSources.Clear();
+            localReport.DataSources.Add(new ReportDataSource("dsService", (DataTable)dsService.DtService));
+            localReport.DataSources.Add(new ReportDataSource("dsQuantityServices", (DataTable)dsService.dtQuantityServices));
+            localReport.PrintToPrinter();
         }
 
         private void FrmServicePerfomed_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.P)
+            if (e.Control && e.KeyCode == Keys.P && btnPrint.Enabled)
                 btnPrint_Click(sender, e);
         }
 

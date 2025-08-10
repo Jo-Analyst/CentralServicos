@@ -32,15 +32,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServicesPerformed));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServicesPerformed));
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNameUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColSector = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTimeOfService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDepartureTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbYear = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbMonth = new System.Windows.Forms.ComboBox();
-            this.btnGenerateChart = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnArrowRight = new System.Windows.Forms.Button();
             this.btnArrowLeft = new System.Windows.Forms.Button();
@@ -51,12 +57,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblDescriptionRow = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNameUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColSector = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTimeOfService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDepartureTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -117,6 +117,61 @@
             this.dgvData.Size = new System.Drawing.Size(701, 366);
             this.dgvData.TabIndex = 1;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReport_CellClick);
+            // 
+            // ColDate
+            // 
+            this.ColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ColDate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColDate.HeaderText = "Data do Atendimento";
+            this.ColDate.MinimumWidth = 6;
+            this.ColDate.Name = "ColDate";
+            this.ColDate.ReadOnly = true;
+            this.ColDate.Width = 159;
+            // 
+            // ColNameUser
+            // 
+            this.ColNameUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColNameUser.HeaderText = "Usuário(a)";
+            this.ColNameUser.Name = "ColNameUser";
+            this.ColNameUser.ReadOnly = true;
+            this.ColNameUser.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColNameUser.Width = 75;
+            // 
+            // ColDescription
+            // 
+            this.ColDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColDescription.HeaderText = "Descrição";
+            this.ColDescription.Name = "ColDescription";
+            this.ColDescription.ReadOnly = true;
+            this.ColDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColSector
+            // 
+            this.ColSector.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColSector.HeaderText = "Setor";
+            this.ColSector.Name = "ColSector";
+            this.ColSector.ReadOnly = true;
+            this.ColSector.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColSector.Width = 47;
+            // 
+            // ColTimeOfService
+            // 
+            this.ColTimeOfService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColTimeOfService.HeaderText = "Hora do atendimento";
+            this.ColTimeOfService.Name = "ColTimeOfService";
+            this.ColTimeOfService.ReadOnly = true;
+            this.ColTimeOfService.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColTimeOfService.Width = 140;
+            // 
+            // ColDepartureTime
+            // 
+            this.ColDepartureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDepartureTime.HeaderText = "Hora da Saída";
+            this.ColDepartureTime.Name = "ColDepartureTime";
+            this.ColDepartureTime.ReadOnly = true;
+            this.ColDepartureTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // groupBox1
             // 
@@ -193,25 +248,26 @@
             this.cbMonth.TabIndex = 17;
             this.cbMonth.TabStop = false;
             // 
-            // btnGenerateChart
+            // btnPrint
             // 
-            this.btnGenerateChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerateChart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGenerateChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerateChart.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerateChart.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateChart.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateChart.Image")));
-            this.btnGenerateChart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerateChart.Location = new System.Drawing.Point(553, 472);
-            this.btnGenerateChart.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGenerateChart.Name = "btnGenerateChart";
-            this.btnGenerateChart.Size = new System.Drawing.Size(162, 47);
-            this.btnGenerateChart.TabIndex = 3;
-            this.btnGenerateChart.TabStop = false;
-            this.btnGenerateChart.Text = "Imprimir";
-            this.toolTip.SetToolTip(this.btnGenerateChart, "Gerar gráfico - CTRL + G");
-            this.btnGenerateChart.UseVisualStyleBackColor = true;
-            this.btnGenerateChart.Click += new System.EventHandler(this.btnPrint_Click);
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.Enabled = false;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(553, 472);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(162, 47);
+            this.btnPrint.TabIndex = 3;
+            this.btnPrint.TabStop = false;
+            this.btnPrint.Text = "Imprimir";
+            this.toolTip.SetToolTip(this.btnPrint, "Gerar gráfico - CTRL + G");
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnArrowRight
             // 
@@ -345,61 +401,6 @@
             this.label10.TabIndex = 11;
             this.label10.Text = "Exibir";
             // 
-            // ColDate
-            // 
-            this.ColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.ColDate.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColDate.HeaderText = "Data do Atendimento";
-            this.ColDate.MinimumWidth = 6;
-            this.ColDate.Name = "ColDate";
-            this.ColDate.ReadOnly = true;
-            this.ColDate.Width = 159;
-            // 
-            // ColNameUser
-            // 
-            this.ColNameUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColNameUser.HeaderText = "Usuário(a)";
-            this.ColNameUser.Name = "ColNameUser";
-            this.ColNameUser.ReadOnly = true;
-            this.ColNameUser.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColNameUser.Width = 75;
-            // 
-            // ColDescription
-            // 
-            this.ColDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColDescription.HeaderText = "Descrição";
-            this.ColDescription.Name = "ColDescription";
-            this.ColDescription.ReadOnly = true;
-            this.ColDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColSector
-            // 
-            this.ColSector.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColSector.HeaderText = "Setor";
-            this.ColSector.Name = "ColSector";
-            this.ColSector.ReadOnly = true;
-            this.ColSector.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColSector.Width = 47;
-            // 
-            // ColTimeOfService
-            // 
-            this.ColTimeOfService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColTimeOfService.HeaderText = "Hora do atendimento";
-            this.ColTimeOfService.Name = "ColTimeOfService";
-            this.ColTimeOfService.ReadOnly = true;
-            this.ColTimeOfService.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColTimeOfService.Width = 140;
-            // 
-            // ColDepartureTime
-            // 
-            this.ColDepartureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColDepartureTime.HeaderText = "Hora da Saída";
-            this.ColDepartureTime.Name = "ColDepartureTime";
-            this.ColDepartureTime.ReadOnly = true;
-            this.ColDepartureTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // FrmServicesPerformed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -407,7 +408,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(731, 532);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnGenerateChart);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvData);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -440,7 +441,7 @@
         private System.Windows.Forms.ComboBox cbYear;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbMonth;
-        private System.Windows.Forms.Button btnGenerateChart;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;

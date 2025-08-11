@@ -12,7 +12,7 @@ namespace DataBase
         public string address { get; set; }
         public string phone { get; set; }
 
-        public void Save()
+        public int Save()
         {
             try
             {
@@ -29,8 +29,17 @@ namespace DataBase
                     command.Parameters.AddWithValue("@CPF", CPF);
                     command.Parameters.AddWithValue("@address", address);
                     command.Parameters.AddWithValue("@phone", phone);
-                    command.ExecuteNonQuery();
+                    if (id == 0)
+                    {
+                        return Convert.ToInt32(command.ExecuteScalar());
+                    }
+                    else
+                    {
+                        command.ExecuteNonQuery();
+                    }
                 }
+
+                return 0;
             }
             catch
             {

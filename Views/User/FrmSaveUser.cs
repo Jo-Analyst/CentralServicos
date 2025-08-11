@@ -8,6 +8,7 @@ namespace Interface
     {
 
         public bool isSaved { get; set; }
+        bool isEditMode;
         int userId;
         public FrmSaveUser()
         {
@@ -23,6 +24,7 @@ namespace Interface
             mkPhone.Text = phone;
             txtAddress.Text = address;
             btnSave.Focus();
+            isEditMode = true;
             this.btnSave.TabStop = true;
 
         }
@@ -54,7 +56,7 @@ namespace Interface
                 }
 
 
-                new User()
+                int lastId = new User()
                 {
                     id = userId,
                     name = txtName.Text.Trim(),
@@ -62,6 +64,12 @@ namespace Interface
                     address = txtAddress.Text.Trim(),
                     phone = mkPhone.MaskCompleted ? mkPhone.Text : "",
                 }.Save();
+
+                if (!isEditMode)
+                {
+                    new FrmCustomerService(lastId, txtName.Text).ShowDialog();
+                    this.Visible = false;
+                }
 
                 isSaved = true;
 

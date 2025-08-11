@@ -24,6 +24,7 @@ namespace Interface
             dgvHistory.Focus();
             cbPage.Text = "1";
             cbRows.Text = "5";
+
             loadEvents();
             this.cbRows.SelectedIndexChanged += cbRows_SelectedIndexChanged;
             this.cbPage.SelectedIndexChanged += new System.EventHandler(this.cbPage_SelectedIndexChanged);
@@ -34,20 +35,22 @@ namespace Interface
 
         private void loadSectors()
         {
-           DataTable sectors = Service.GetSectors();
-            if (sectors.Rows.Count > 0)
+            try
             {
-                cbSectors.Items.Clear();
-                foreach (DataRow dr in sectors.Rows)
+                DataTable sectors = Service.GetSectors();
+                if (sectors.Rows.Count > 0)
                 {
-                    cbSectors.Items.Add(dr["sector"].ToString().Trim());
+                    cbSectors.Items.Clear();
+                    foreach (DataRow dr in sectors.Rows)
+                    {
+                        cbSectors.Items.Add(dr["sector"].ToString().Trim());
+                    }
+                    cbSectors.SelectedIndex = -1;
                 }
-                cbSectors.SelectedIndex = 0;
-                cbSectors.Items.RemoveAt(0); // Remove the first item which is empty
             }
-            else
+            catch
             {
-                MessageBox.Show("Nenhum setor cadastrado. Entre em contato com o administrador do sistema.", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Houve um problema no sistema. Entre em contato com o administrador do sistema.", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -321,6 +324,7 @@ namespace Interface
             dtTimeOfService.Value = DateTime.Now;
             dtDepartureTime.Value = DateTime.Now;
             lkCancel.Visible = false;
+            cbSectors.Text = string.Empty;
         }
 
         private void FrmCustomerService_KeyDown(object sender, KeyEventArgs e)

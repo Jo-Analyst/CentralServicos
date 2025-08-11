@@ -1,4 +1,4 @@
-﻿using CentralServicos.Properties;
+﻿using Interface.Properties;
 using System;
 using System.Windows.Forms;
 

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A8056436-0A0C-4227-9F9C-74FD2400CBBF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CentralServicos</RootNamespace>
-    <AssemblyName>CentralServicos</AssemblyName>
+    <RootNamespace>Interface</RootNamespace>
+    <AssemblyName>Interface</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -1,5 +1,5 @@
-﻿using CentralServicos.Views.Report.Data;
-using CentralServicos.Views.Report.Data.DsServiceTableAdapters;
+﻿using Interface.Views.Report.Data;
+using Interface.Views.Report.Data.DsServiceTableAdapters;
 
 namespace Interface
 {
@@ -36,13 +36,13 @@ namespace Interface
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportService));
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dsService = new Interface.Views.Report.Data.DsService();
             this.dtServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsService = new CentralServicos.Views.Report.Data.DsService();
-            this.dtServiceTableAdapter = new CentralServicos.Views.Report.Data.DsServiceTableAdapters.DtServiceTableAdapter();
+            this.dtServiceTableAdapter = new Interface.Views.Report.Data.DsServiceTableAdapters.DtServiceTableAdapter();
             this.dtQuantityServicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dtQuantityServicesTableAdapter = new CentralServicos.Views.Report.Data.DsServiceTableAdapters.dtQuantityServicesTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dtServiceBindingSource)).BeginInit();
+            this.dtQuantityServicesTableAdapter = new Interface.Views.Report.Data.DsServiceTableAdapters.dtQuantityServicesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dsService)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtServiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtQuantityServicesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,22 +55,22 @@ namespace Interface
             reportDataSource2.Value = this.dtQuantityServicesBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CentralServicos.Views.Report.Relatório do Atendimento Diário.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Interface.Views.Report.Relatório do Atendimento Diário.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
-            // dtServiceBindingSource
-            // 
-            this.dtServiceBindingSource.DataMember = "DtService";
-            this.dtServiceBindingSource.DataSource = this.dsService;
-            // 
             // dsService
             // 
             this.dsService.DataSetName = "DsService";
             this.dsService.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dtServiceBindingSource
+            // 
+            this.dtServiceBindingSource.DataMember = "DtService";
+            this.dtServiceBindingSource.DataSource = this.dsService;
             // 
             // dtServiceTableAdapter
             // 
@@ -96,11 +96,11 @@ namespace Interface
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReportService";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmReportService";
+            this.Text = "Relatório de Atendimentos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmReportService_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtServiceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsService)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtServiceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtQuantityServicesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -111,8 +111,8 @@ namespace Interface
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource dtServiceBindingSource;
         private DsService dsService;
-        private DtServiceTableAdapter dtServiceTableAdapter;
         private System.Windows.Forms.BindingSource dtQuantityServicesBindingSource;
+        private DtServiceTableAdapter dtServiceTableAdapter;
         private dtQuantityServicesTableAdapter dtQuantityServicesTableAdapter;
     }
 }

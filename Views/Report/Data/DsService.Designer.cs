@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace CentralServicos.Views.Report.Data {
+namespace Interface.Views.Report.Data {
     
     
     /// <summary>
@@ -1260,7 +1260,7 @@ namespace CentralServicos.Views.Report.Data {
         }
     }
 }
-namespace CentralServicos.Views.Report.Data.DsServiceTableAdapters {
+namespace Interface.Views.Report.Data.DsServiceTableAdapters {
     
     
     /// <summary>
@@ -1398,7 +1398,7 @@ namespace CentralServicos.Views.Report.Data.DsServiceTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CentralServicos.Properties.Settings.Default.dbCentralServicesConnectionString;
+            this._connection.ConnectionString = global::Interface.Properties.Settings.Default.dbCentralServicesConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1583,7 +1583,7 @@ ORDER BY CONVERT(DATE, Services.date_service, 103) DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CentralServicos.Properties.Settings.Default.dbCentralServicesConnectionString;
+            this._connection.ConnectionString = global::Interface.Properties.Settings.Default.dbCentralServicesConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1596,7 +1596,7 @@ ORDER BY CONVERT(DATE, Services.date_service, 103) DESC";
 FROM            Services INNER JOIN
                          Users ON Users.id = Services.user_id
 WHERE        (CONVERT(VARCHAR, Services.date_service, 103) LIKE @year)
-GROUP BY Users.id, Services.sector";
+GROUP BY Services.sector";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@year", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

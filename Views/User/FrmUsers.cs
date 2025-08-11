@@ -103,7 +103,7 @@ namespace Interface
         private void FrmUsers_Load(object sender, EventArgs e)
         {
             cbPage.Text = "1";
-            cbRows.Text = "5";
+            cbRows.Text = "10";
             LoadEvents();
             this.cbRows.SelectedIndexChanged += cbRows_SelectedIndexChanged;
             this.cbPage.SelectedIndexChanged += new System.EventHandler(this.cbPage_SelectedIndexChanged);

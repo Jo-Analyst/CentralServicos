@@ -39,5 +39,10 @@ namespace Interface
                 }
             }
         }
+
+        private void lkClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

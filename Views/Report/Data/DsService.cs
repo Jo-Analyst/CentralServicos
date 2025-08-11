@@ -1,4 +1,4 @@
-﻿namespace CentralServicos.Views.Report.Data
+﻿namespace Interface.Views.Report.Data
 {
 
 

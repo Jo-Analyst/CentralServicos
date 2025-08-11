@@ -1,7 +1,7 @@
-﻿using CentralServicos.Properties;
-using CentralServicos.Views.Report;
-using CentralServicos.Views.Report.Data;
-using CentralServicos.Views.Report.Data.DsServiceTableAdapters;
+﻿using Interface.Properties;
+using Interface.Views.Report;
+using Interface.Views.Report.Data;
+using Interface.Views.Report.Data.DsServiceTableAdapters;
 using DataBase;
 using Microsoft.Reporting.WinForms;
 using Microsoft.ReportingServices.Interfaces;
@@ -198,7 +198,7 @@ namespace Interface
             dtQuantityServicesTableAdapter.Fill(dsService.dtQuantityServices, cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%");
 
             LocalReport localReport = new LocalReport();
-            localReport.ReportEmbeddedResource = "CentralServicos.Views.Report.Relatório do Atendimento Diário.rdlc";
+            localReport.ReportEmbeddedResource = "Interface.Views.Report.Relatório do Atendimento Diário.rdlc";
             localReport.DataSources.Clear();
             localReport.DataSources.Add(new ReportDataSource("dsService", (DataTable)dsService.DtService));
             localReport.DataSources.Add(new ReportDataSource("dsQuantityServices", (DataTable)dsService.dtQuantityServices));

@@ -234,6 +234,7 @@
             this.btnArrowRight.Enabled = false;
             this.btnArrowRight.FlatAppearance.BorderSize = 0;
             this.btnArrowRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArrowRight.Image = global::Interface.Properties.Resources.right_arrow_grey;
             this.btnArrowRight.Location = new System.Drawing.Point(425, 6);
             this.btnArrowRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnArrowRight.Name = "btnArrowRight";
@@ -251,6 +252,7 @@
             this.btnArrowLeft.Enabled = false;
             this.btnArrowLeft.FlatAppearance.BorderSize = 0;
             this.btnArrowLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArrowLeft.Image = global::Interface.Properties.Resources.left_arrow_grey;
             this.btnArrowLeft.Location = new System.Drawing.Point(379, 6);
             this.btnArrowLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnArrowLeft.Name = "btnArrowLeft";
@@ -386,6 +388,7 @@
             // dtDepartureTime
             // 
             this.dtDepartureTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtDepartureTime.Enabled = false;
             this.dtDepartureTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtDepartureTime.Location = new System.Drawing.Point(228, 401);
             this.dtDepartureTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -410,6 +413,7 @@
             // dtTimeOfService
             // 
             this.dtTimeOfService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtTimeOfService.Enabled = false;
             this.dtTimeOfService.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtTimeOfService.Location = new System.Drawing.Point(29, 401);
             this.dtTimeOfService.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -480,8 +484,6 @@
             // 
             this.cbEntryAndExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbEntryAndExit.AutoSize = true;
-            this.cbEntryAndExit.Checked = true;
-            this.cbEntryAndExit.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbEntryAndExit.Location = new System.Drawing.Point(27, 437);
             this.cbEntryAndExit.Name = "cbEntryAndExit";
             this.cbEntryAndExit.Size = new System.Drawing.Size(263, 22);

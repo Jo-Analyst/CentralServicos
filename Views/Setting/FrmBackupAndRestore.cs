@@ -1,4 +1,4 @@
-﻿using CentralServicos.Properties;
+﻿using Interface.Properties;
 using DataBase;
 //using Balance_Sheet.Properties;
 using System;

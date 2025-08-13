@@ -319,6 +319,7 @@
             this.dgvHistory.RowHeadersWidth = 51;
             this.dgvHistory.Size = new System.Drawing.Size(477, 347);
             this.dgvHistory.TabIndex = 0;
+            this.dgvHistory.TabStop = false;
             this.dgvHistory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistory_CellClick);
             this.dgvHistory.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistory_CellMouseEnter);
             // 
@@ -396,7 +397,7 @@
             this.dtDepartureTime.Name = "dtDepartureTime";
             this.dtDepartureTime.ShowUpDown = true;
             this.dtDepartureTime.Size = new System.Drawing.Size(127, 26);
-            this.dtDepartureTime.TabIndex = 79;
+            this.dtDepartureTime.TabIndex = 4;
             // 
             // label2
             // 
@@ -420,7 +421,7 @@
             this.dtTimeOfService.Name = "dtTimeOfService";
             this.dtTimeOfService.ShowUpDown = true;
             this.dtTimeOfService.Size = new System.Drawing.Size(180, 26);
-            this.dtTimeOfService.TabIndex = 77;
+            this.dtTimeOfService.TabIndex = 2;
             // 
             // label1
             // 
@@ -443,7 +444,7 @@
             this.dtDateService.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtDateService.Name = "dtDateService";
             this.dtDateService.Size = new System.Drawing.Size(152, 26);
-            this.dtDateService.TabIndex = 74;
+            this.dtDateService.TabIndex = 5;
             // 
             // label11
             // 
@@ -476,7 +477,7 @@
             this.rtDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rtDescription.Name = "rtDescription";
             this.rtDescription.Size = new System.Drawing.Size(654, 290);
-            this.rtDescription.TabIndex = 73;
+            this.rtDescription.TabIndex = 0;
             this.rtDescription.Text = "";
             // 
             // lkCancel
@@ -487,8 +488,7 @@
             this.lkCancel.Location = new System.Drawing.Point(556, 441);
             this.lkCancel.Name = "lkCancel";
             this.lkCancel.Size = new System.Drawing.Size(125, 18);
-            this.lkCancel.TabIndex = 82;
-            this.lkCancel.TabStop = true;
+            this.lkCancel.TabIndex = 0;
             this.lkCancel.Text = "Cancelar Edição";
             this.lkCancel.Visible = false;
             this.lkCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lkCancel_LinkClicked);
@@ -513,17 +513,19 @@
             this.cbSectors.Location = new System.Drawing.Point(316, 36);
             this.cbSectors.Name = "cbSectors";
             this.cbSectors.Size = new System.Drawing.Size(365, 26);
-            this.cbSectors.TabIndex = 84;
+            this.cbSectors.TabIndex = 1;
             // 
             // cbAddTimeExit
             // 
             this.cbAddTimeExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbAddTimeExit.Appearance = System.Windows.Forms.Appearance.Button;
             this.cbAddTimeExit.AutoSize = true;
             this.cbAddTimeExit.Enabled = false;
-            this.cbAddTimeExit.Location = new System.Drawing.Point(29, 441);
+            this.cbAddTimeExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbAddTimeExit.Location = new System.Drawing.Point(29, 435);
             this.cbAddTimeExit.Name = "cbAddTimeExit";
-            this.cbAddTimeExit.Size = new System.Drawing.Size(193, 22);
-            this.cbAddTimeExit.TabIndex = 85;
+            this.cbAddTimeExit.Size = new System.Drawing.Size(184, 28);
+            this.cbAddTimeExit.TabIndex = 3;
             this.cbAddTimeExit.Text = "Adicionar hora de saída";
             this.cbAddTimeExit.UseVisualStyleBackColor = true;
             this.cbAddTimeExit.CheckedChanged += new System.EventHandler(this.cbAddTimeExit_CheckedChanged);

@@ -24,7 +24,7 @@ namespace Interface
         {
             dgvHistory.Focus();
             cbPage.Text = "1";
-            cbRows.Text = "5";
+            cbRows.Text = "10";
             dtTimeOfService.Enabled = addTime;            
             cbAddTimeExit.Visible = addTime;
 
@@ -161,6 +161,8 @@ namespace Interface
                 btnSave.Text = "Editar";
                 lkCancel.Visible = true;
                 cbAddTimeExit.Enabled = true;
+
+                if (!addTime) return;
 
                 if (dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString() == "---")
                 {

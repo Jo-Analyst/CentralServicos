@@ -51,7 +51,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT id, description, CONVERT(VARCHAR, date_service, 103) AS date_service, time_of_service, departure_time, Services.sector, user_id FROM Services WHERE user_id = {user_id} ORDER BY id DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
+                    string sql = $"SELECT id, description, CONVERT(VARCHAR, date_service, 103) AS date_service, time_of_service, departure_time, Services.sector, user_id FROM Services WHERE user_id = {user_id} ORDER BY CONVERT(DATE, date_service, 103), CONVERT(Time, time_of_service, 103) DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -71,7 +71,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT Services.description, CONVERT(VARCHAR, Services.date_service, 103) AS date_service, Services.time_of_service, Services.departure_time, Services.sector, Users.name FROM Services INNER JOIN Users ON Users.id = Services.user_id WHERE CONVERT(VARCHAR, date_service, 103) LIKE '%{month}/{year}%' ORDER BY Services.date_service DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
+                    string sql = $"SELECT Services.description, CONVERT(VARCHAR, Services.date_service, 103) AS date_service, Services.time_of_service, Services.departure_time, Services.sector, Users.name FROM Services INNER JOIN Users ON Users.id = Services.user_id WHERE CONVERT(VARCHAR, date_service, 103) LIKE '%{month}/{year}%' ORDER BY CONVERT(DATE, Services.date_service, 103), CONVERT(Time, Services.time_of_service, 103) DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -91,7 +91,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT Services.description, CONVERT(VARCHAR, Services.date_service, 103) AS date_service, Services.time_of_service, Services.departure_time, Services.sector, Users.name FROM Services INNER JOIN Users ON Users.id = Services.user_id WHERE date_service LIKE '%{year}%' ORDER BY Services.date_service DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
+                    string sql = $"SELECT Services.description, CONVERT(VARCHAR, Services.date_service, 103) AS date_service, Services.time_of_service, Services.departure_time, Services.sector, Users.name FROM Services INNER JOIN Users ON Users.id = Services.user_id WHERE date_service LIKE '%{year}%' ORDER BY CONVERT(DATE, Services.date_service, 103), CONVERT(Time, Services.time_of_service, 103) DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

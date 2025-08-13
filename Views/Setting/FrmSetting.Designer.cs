@@ -40,8 +40,11 @@
             this.btnConfirm = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbTimeEntryAndExit = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -110,7 +113,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(12, 139);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(376, 72);
+            this.groupBox2.Size = new System.Drawing.Size(584, 72);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Impressão";
@@ -129,21 +132,43 @@
             // 
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(427, 157);
+            this.btnConfirm.Location = new System.Drawing.Point(442, 235);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(169, 46);
+            this.btnConfirm.Size = new System.Drawing.Size(154, 46);
             this.btnConfirm.TabIndex = 0;
             this.btnConfirm.Text = "OK";
             this.toolTip.SetToolTip(this.btnConfirm, "Confirmar - [ENTER]");
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbTimeEntryAndExit);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(12, 217);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(410, 72);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            // 
+            // cbEntryAndExit
+            // 
+            this.cbTimeEntryAndExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbTimeEntryAndExit.AutoSize = true;
+            this.cbTimeEntryAndExit.Location = new System.Drawing.Point(21, 30);
+            this.cbTimeEntryAndExit.Name = "cbEntryAndExit";
+            this.cbTimeEntryAndExit.Size = new System.Drawing.Size(381, 24);
+            this.cbTimeEntryAndExit.TabIndex = 82;
+            this.cbTimeEntryAndExit.Text = "Adicionar hora de entrada e saída no atendimento";
+            this.cbTimeEntryAndExit.UseVisualStyleBackColor = true;
+            // 
             // FrmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(617, 223);
+            this.ClientSize = new System.Drawing.Size(617, 304);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -163,6 +188,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -179,5 +206,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox cbTimeEntryAndExit;
     }
 }

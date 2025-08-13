@@ -91,8 +91,8 @@ namespace Interface
                     dgvData.Rows[i].Cells["ColDescription"].Value = dr["description"].ToString();
                     dgvData.Rows[i].Cells["ColNameUser"].Value = dr["name"].ToString();
                     dgvData.Rows[i].Cells["ColDescription"].Value = dr["description"].ToString();
-                    dgvData.Rows[i].Cells["ColTimeOfService"].Value = dr["time_of_service"].ToString();
-                    dgvData.Rows[i].Cells["ColDepartureTime"].Value = dr["departure_time"].ToString();
+                    dgvData.Rows[i].Cells["ColTimeOfService"].Value = dr["time_of_service"].ToString() == string.Empty ? "---" : dr["time_of_service"].ToString();
+                    dgvData.Rows[i].Cells["ColDepartureTime"].Value = dr["departure_time"].ToString() == string.Empty ? "---" : dr["departure_time"].ToString();
                     dgvData.Rows[i].Cells["ColSector"].Value = dr["sector"].ToString();
 
                     dgvData.Rows[i].Height = 45;

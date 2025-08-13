@@ -65,10 +65,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.rtDescription = new System.Windows.Forms.RichTextBox();
-            this.cbEntryAndExit = new System.Windows.Forms.CheckBox();
             this.lkCancel = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.cbSectors = new System.Windows.Forms.ComboBox();
+            this.cbAddTimeExit = new System.Windows.Forms.CheckBox();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
@@ -413,7 +413,6 @@
             // dtTimeOfService
             // 
             this.dtTimeOfService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtTimeOfService.Enabled = false;
             this.dtTimeOfService.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtTimeOfService.Location = new System.Drawing.Point(29, 401);
             this.dtTimeOfService.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -480,18 +479,6 @@
             this.rtDescription.TabIndex = 73;
             this.rtDescription.Text = "";
             // 
-            // cbEntryAndExit
-            // 
-            this.cbEntryAndExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbEntryAndExit.AutoSize = true;
-            this.cbEntryAndExit.Location = new System.Drawing.Point(27, 437);
-            this.cbEntryAndExit.Name = "cbEntryAndExit";
-            this.cbEntryAndExit.Size = new System.Drawing.Size(263, 22);
-            this.cbEntryAndExit.TabIndex = 81;
-            this.cbEntryAndExit.Text = "Adicionar hora de entrada e saída";
-            this.cbEntryAndExit.UseVisualStyleBackColor = true;
-            this.cbEntryAndExit.CheckedChanged += new System.EventHandler(this.cbEntryAndExit_CheckedChanged);
-            // 
             // lkCancel
             // 
             this.lkCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -528,16 +515,29 @@
             this.cbSectors.Size = new System.Drawing.Size(365, 26);
             this.cbSectors.TabIndex = 84;
             // 
+            // cbAddTimeExit
+            // 
+            this.cbAddTimeExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbAddTimeExit.AutoSize = true;
+            this.cbAddTimeExit.Enabled = false;
+            this.cbAddTimeExit.Location = new System.Drawing.Point(29, 441);
+            this.cbAddTimeExit.Name = "cbAddTimeExit";
+            this.cbAddTimeExit.Size = new System.Drawing.Size(193, 22);
+            this.cbAddTimeExit.TabIndex = 85;
+            this.cbAddTimeExit.Text = "Adicionar hora de saída";
+            this.cbAddTimeExit.UseVisualStyleBackColor = true;
+            this.cbAddTimeExit.CheckedChanged += new System.EventHandler(this.cbAddTimeExit_CheckedChanged);
+            // 
             // FrmCustomerService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(1188, 471);
+            this.Controls.Add(this.cbAddTimeExit);
             this.Controls.Add(this.cbSectors);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lkCancel);
-            this.Controls.Add(this.cbEntryAndExit);
             this.Controls.Add(this.dtDepartureTime);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtTimeOfService);
@@ -596,7 +596,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox rtDescription;
-        private System.Windows.Forms.CheckBox cbEntryAndExit;
         private System.Windows.Forms.LinkLabel lkCancel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbSectors;
@@ -608,5 +607,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDateService;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTimeOfService;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDepartureTime;
+        private System.Windows.Forms.CheckBox cbAddTimeExit;
     }
 }

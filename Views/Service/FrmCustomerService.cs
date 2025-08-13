@@ -11,6 +11,7 @@ namespace Interface
     {
 
         int userId, page = 1, pageMaximum = 1, serviceId;
+        bool addTime = bool.Parse(Settings.Default["addTime"].ToString());
 
         public FrmCustomerService(int userId, string name)
         {
@@ -24,6 +25,8 @@ namespace Interface
             dgvHistory.Focus();
             cbPage.Text = "1";
             cbRows.Text = "5";
+            dtTimeOfService.Enabled = addTime;            
+            cbAddTimeExit.Visible = addTime;
 
             loadEvents();
             this.cbRows.SelectedIndexChanged += cbRows_SelectedIndexChanged;
@@ -68,7 +71,7 @@ namespace Interface
                 MessageBox.Show("Selecione um setor para o atendimento.", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            else if (cbEntryAndExit.Checked)
+            else if (addTime && cbAddTimeExit.Checked)
             {
                 if (dtTimeOfService.Value > dtDepartureTime.Value)
                 {
@@ -89,8 +92,8 @@ namespace Interface
                 service.id = serviceId;
                 service.description = rtDescription.Text.Trim();
                 service.dateService = dtDateService.Value;
-                service.timeOfService = cbEntryAndExit.Checked ? dtTimeOfService.Value.ToString("HH:mm:ss") : "---";
-                service.departureTime = cbEntryAndExit.Checked ? dtDepartureTime.Value.ToString("HH:mm:ss") : "---";
+                service.timeOfService = addTime ? dtTimeOfService.Value.ToString("HH:mm:ss") : string.Empty;
+                service.departureTime = cbAddTimeExit.Checked ? dtDepartureTime.Value.ToString("HH:mm:ss") : string.Empty;
                 service.sector = cbSectors.Text.Trim();
                 service.userId = userId;
 
@@ -126,8 +129,8 @@ namespace Interface
                     dgvHistory.Rows[index].Cells["ColId"].Value = dr["id"].ToString();
                     dgvHistory.Rows[index].Cells["ColDescription"].Value = dr["description"].ToString();
                     dgvHistory.Rows[index].Cells["ColDateService"].Value = dr["date_service"].ToString();
-                    dgvHistory.Rows[index].Cells["ColTimeOfService"].Value = dr["time_of_service"].ToString();
-                    dgvHistory.Rows[index].Cells["ColDepartureTime"].Value = dr["departure_time"].ToString();
+                    dgvHistory.Rows[index].Cells["ColTimeOfService"].Value = dr["time_of_service"].ToString() == string.Empty ? "---" : dr["time_of_service"].ToString();
+                    dgvHistory.Rows[index].Cells["ColDepartureTime"].Value = dr["departure_time"].ToString() == string.Empty ? "---" : dr["departure_time"].ToString();
                     dgvHistory.Rows[index].Cells["ColSector"].Value = dr["sector"].ToString();
                     dgvHistory.Rows[index].Selected = false;
                     dgvHistory.Rows[index].Height = 45;
@@ -157,18 +160,20 @@ namespace Interface
                 cbSectors.Text = dgvHistory.CurrentRow.Cells["ColSector"].Value.ToString();
                 btnSave.Text = "Editar";
                 lkCancel.Visible = true;
+                cbAddTimeExit.Enabled = true;
 
                 if (dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString() == "---")
                 {
-                    cbEntryAndExit.Checked = false;
-                    cbEntryAndExit_CheckedChanged(sender, e);
+                    cbAddTimeExit_CheckedChanged(sender, e);
                 }
-
-                else 
-                    cbEntryAndExit.Checked = true;
+                else
+                {
+                    dtDepartureTime.Enabled = true;
+                    cbAddTimeExit.Checked = true;
+                }
+                  
             }
-
-
+            
             if (dgvHistory.CurrentCell.ColumnIndex == 1)
             {
                 DialogResult dr = MessageBox.Show($"Deseja mesmo excluir este atendimento?", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
@@ -325,6 +330,9 @@ namespace Interface
             dtDepartureTime.Value = DateTime.Now;
             lkCancel.Visible = false;
             cbSectors.Text = string.Empty;
+            cbAddTimeExit.Checked = false;
+            cbAddTimeExit.Enabled = false;
+            dtDepartureTime.Enabled = false;
         }
 
         private void FrmCustomerService_KeyDown(object sender, KeyEventArgs e)
@@ -335,23 +343,21 @@ namespace Interface
             else if (e.Control && e.KeyCode == Keys.Left && btnArrowLeft.Enabled) btnArrowLeft_Click(sender, e);
         }
 
-        private void cbEntryAndExit_CheckedChanged(object sender, EventArgs e)
+        private void lkCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (cbEntryAndExit.Checked)
+            ClearFields();
+        }
+
+        private void cbAddTimeExit_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAddTimeExit.Checked)
             {
                 dtDepartureTime.Enabled = true;
-                dtTimeOfService.Enabled = true;
             }
             else
             {
                 dtDepartureTime.Enabled = false;
-                dtTimeOfService.Enabled = false;
             }
-        }
-
-        private void lkCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            ClearFields();
         }
 
         private void DisabledBtnArrowLeft()

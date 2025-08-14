@@ -192,16 +192,19 @@ namespace Interface
         {
             DtServiceTableAdapter dtServiceTableAdapter = new DtServiceTableAdapter();
             dtQuantityServicesTableAdapter dtQuantityServicesTableAdapter = new dtQuantityServicesTableAdapter();
+            DtQuantityTotalServiceTableAdapter dtQuantityTotalServiceTableAdapter = new DtQuantityTotalServiceTableAdapter();
             DsService dsService = new DsService();
 
             dtServiceTableAdapter.Fill(dsService.DtService, cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%");
             dtQuantityServicesTableAdapter.Fill(dsService.dtQuantityServices, cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%");
+            dtQuantityTotalServiceTableAdapter.Fill(dsService.DtQuantityTotalService, cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%");
 
             LocalReport localReport = new LocalReport();
             localReport.ReportEmbeddedResource = "Interface.Views.Report.Relatório do Atendimento Diário.rdlc";
             localReport.DataSources.Clear();
             localReport.DataSources.Add(new ReportDataSource("dsService", (DataTable)dsService.DtService));
             localReport.DataSources.Add(new ReportDataSource("dsQuantityServices", (DataTable)dsService.dtQuantityServices));
+            localReport.DataSources.Add(new ReportDataSource("dsQuantityTotalServices", (DataTable)dsService.DtQuantityTotalService));
             localReport.PrintToPrinter();
         }
 

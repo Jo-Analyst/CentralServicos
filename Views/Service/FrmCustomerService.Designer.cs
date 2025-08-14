@@ -81,7 +81,7 @@
             this.label6.Location = new System.Drawing.Point(26, 18);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 18);
+            this.label6.Size = new System.Drawing.Size(82, 23);
             this.label6.TabIndex = 47;
             this.label6.Text = "Usuário:";
             // 
@@ -110,7 +110,7 @@
             this.lblName.Location = new System.Drawing.Point(102, 18);
             this.lblName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(185, 18);
+            this.lblName.Size = new System.Drawing.Size(231, 23);
             this.lblName.TabIndex = 65;
             this.lblName.Text = "Joelmir Rogério Carvalho";
             // 
@@ -173,7 +173,7 @@
             "25"});
             this.cbRows.Location = new System.Drawing.Point(67, 11);
             this.cbRows.Name = "cbRows";
-            this.cbRows.Size = new System.Drawing.Size(94, 26);
+            this.cbRows.Size = new System.Drawing.Size(94, 31);
             this.cbRows.TabIndex = 16;
             this.cbRows.TabStop = false;
             // 
@@ -187,11 +187,11 @@
             this.cbPage.ForeColor = System.Drawing.Color.White;
             this.cbPage.FormattingEnabled = true;
             this.cbPage.IntegralHeight = false;
-            this.cbPage.ItemHeight = 18;
+            this.cbPage.ItemHeight = 23;
             this.cbPage.Location = new System.Drawing.Point(259, 11);
             this.cbPage.Margin = new System.Windows.Forms.Padding(19, 17, 19, 17);
             this.cbPage.Name = "cbPage";
-            this.cbPage.Size = new System.Drawing.Size(97, 26);
+            this.cbPage.Size = new System.Drawing.Size(97, 31);
             this.cbPage.TabIndex = 15;
             this.cbPage.TabStop = false;
             // 
@@ -202,7 +202,7 @@
             this.label9.Location = new System.Drawing.Point(190, 14);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 18);
+            this.label9.Size = new System.Drawing.Size(70, 23);
             this.label9.TabIndex = 14;
             this.label9.Text = "Página";
             // 
@@ -213,7 +213,7 @@
             this.lblDescriptionRow.Location = new System.Drawing.Point(189, 17);
             this.lblDescriptionRow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescriptionRow.Name = "lblDescriptionRow";
-            this.lblDescriptionRow.Size = new System.Drawing.Size(0, 18);
+            this.lblDescriptionRow.Size = new System.Drawing.Size(0, 23);
             this.lblDescriptionRow.TabIndex = 13;
             // 
             // label10
@@ -223,7 +223,7 @@
             this.label10.Location = new System.Drawing.Point(12, 14);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 18);
+            this.label10.Size = new System.Drawing.Size(58, 23);
             this.label10.TabIndex = 11;
             this.label10.Text = "Exibir";
             // 
@@ -326,38 +326,46 @@
             // ColEdit
             // 
             this.ColEdit.HeaderText = "Editar";
+            this.ColEdit.MinimumWidth = 6;
             this.ColEdit.Name = "ColEdit";
             this.ColEdit.ReadOnly = true;
+            this.ColEdit.Width = 125;
             // 
             // ColDelete
             // 
             this.ColDelete.HeaderText = "Excluir";
+            this.ColDelete.MinimumWidth = 6;
             this.ColDelete.Name = "ColDelete";
             this.ColDelete.ReadOnly = true;
+            this.ColDelete.Width = 125;
             // 
             // ColId
             // 
             this.ColId.HeaderText = "ID";
+            this.ColId.MinimumWidth = 6;
             this.ColId.Name = "ColId";
             this.ColId.ReadOnly = true;
             this.ColId.Visible = false;
+            this.ColId.Width = 125;
             // 
             // ColDescription
             // 
             this.ColDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColDescription.HeaderText = "Descrição";
+            this.ColDescription.MinimumWidth = 6;
             this.ColDescription.Name = "ColDescription";
             this.ColDescription.ReadOnly = true;
-            this.ColDescription.Width = 105;
+            this.ColDescription.Width = 127;
             // 
             // ColSector
             // 
             this.ColSector.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColSector.HeaderText = "Setor";
+            this.ColSector.MinimumWidth = 6;
             this.ColSector.Name = "ColSector";
             this.ColSector.ReadOnly = true;
             this.ColSector.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColSector.Width = 52;
+            this.ColSector.Width = 64;
             // 
             // ColDateService
             // 
@@ -366,25 +374,28 @@
             dataGridViewCellStyle2.NullValue = null;
             this.ColDateService.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColDateService.HeaderText = "Data do Atendimento";
+            this.ColDateService.MinimumWidth = 6;
             this.ColDateService.Name = "ColDateService";
             this.ColDateService.ReadOnly = true;
-            this.ColDateService.Width = 180;
+            this.ColDateService.Width = 223;
             // 
             // ColTimeOfService
             // 
             this.ColTimeOfService.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColTimeOfService.HeaderText = "Hora do Atendimento";
+            this.ColTimeOfService.MinimumWidth = 6;
             this.ColTimeOfService.Name = "ColTimeOfService";
             this.ColTimeOfService.ReadOnly = true;
-            this.ColTimeOfService.Width = 180;
+            this.ColTimeOfService.Width = 223;
             // 
             // ColDepartureTime
             // 
             this.ColDepartureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColDepartureTime.HeaderText = "Hora da saída";
+            this.ColDepartureTime.MinimumWidth = 6;
             this.ColDepartureTime.Name = "ColDepartureTime";
             this.ColDepartureTime.ReadOnly = true;
-            this.ColDepartureTime.Width = 131;
+            this.ColDepartureTime.Width = 164;
             // 
             // dtDepartureTime
             // 
@@ -396,7 +407,7 @@
             this.dtDepartureTime.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtDepartureTime.Name = "dtDepartureTime";
             this.dtDepartureTime.ShowUpDown = true;
-            this.dtDepartureTime.Size = new System.Drawing.Size(127, 26);
+            this.dtDepartureTime.Size = new System.Drawing.Size(127, 30);
             this.dtDepartureTime.TabIndex = 4;
             // 
             // label2
@@ -407,7 +418,7 @@
             this.label2.Location = new System.Drawing.Point(223, 371);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 18);
+            this.label2.Size = new System.Drawing.Size(141, 23);
             this.label2.TabIndex = 80;
             this.label2.Text = "Hora da saída ";
             // 
@@ -420,7 +431,7 @@
             this.dtTimeOfService.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtTimeOfService.Name = "dtTimeOfService";
             this.dtTimeOfService.ShowUpDown = true;
-            this.dtTimeOfService.Size = new System.Drawing.Size(180, 26);
+            this.dtTimeOfService.Size = new System.Drawing.Size(180, 30);
             this.dtTimeOfService.TabIndex = 2;
             // 
             // label1
@@ -431,7 +442,7 @@
             this.label1.Location = new System.Drawing.Point(24, 371);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 18);
+            this.label1.Size = new System.Drawing.Size(194, 23);
             this.label1.TabIndex = 78;
             this.label1.Text = "Hora do Atendimento";
             // 
@@ -443,7 +454,7 @@
             this.dtDateService.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtDateService.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtDateService.Name = "dtDateService";
-            this.dtDateService.Size = new System.Drawing.Size(152, 26);
+            this.dtDateService.Size = new System.Drawing.Size(152, 30);
             this.dtDateService.TabIndex = 5;
             // 
             // label11
@@ -454,7 +465,7 @@
             this.label11.Location = new System.Drawing.Point(369, 371);
             this.label11.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(155, 18);
+            this.label11.Size = new System.Drawing.Size(194, 23);
             this.label11.TabIndex = 76;
             this.label11.Text = "Data do Atendimento";
             // 
@@ -465,7 +476,7 @@
             this.label3.Location = new System.Drawing.Point(26, 45);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 18);
+            this.label3.Size = new System.Drawing.Size(98, 23);
             this.label3.TabIndex = 75;
             this.label3.Text = "Descrição";
             // 
@@ -487,8 +498,9 @@
             this.lkCancel.LinkColor = System.Drawing.Color.White;
             this.lkCancel.Location = new System.Drawing.Point(556, 441);
             this.lkCancel.Name = "lkCancel";
-            this.lkCancel.Size = new System.Drawing.Size(125, 18);
+            this.lkCancel.Size = new System.Drawing.Size(154, 23);
             this.lkCancel.TabIndex = 0;
+            this.lkCancel.TabStop = true;
             this.lkCancel.Text = "Cancelar Edição";
             this.lkCancel.Visible = false;
             this.lkCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lkCancel_LinkClicked);
@@ -500,7 +512,7 @@
             this.label4.Location = new System.Drawing.Point(313, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 18);
+            this.label4.Size = new System.Drawing.Size(58, 23);
             this.label4.TabIndex = 83;
             this.label4.Text = "Setor";
             // 
@@ -512,19 +524,18 @@
             this.cbSectors.FormattingEnabled = true;
             this.cbSectors.Location = new System.Drawing.Point(316, 36);
             this.cbSectors.Name = "cbSectors";
-            this.cbSectors.Size = new System.Drawing.Size(365, 26);
+            this.cbSectors.Size = new System.Drawing.Size(365, 31);
             this.cbSectors.TabIndex = 1;
             // 
             // cbAddTimeExit
             // 
             this.cbAddTimeExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbAddTimeExit.Appearance = System.Windows.Forms.Appearance.Button;
             this.cbAddTimeExit.AutoSize = true;
             this.cbAddTimeExit.Enabled = false;
             this.cbAddTimeExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbAddTimeExit.Location = new System.Drawing.Point(29, 435);
+            this.cbAddTimeExit.Location = new System.Drawing.Point(29, 436);
             this.cbAddTimeExit.Name = "cbAddTimeExit";
-            this.cbAddTimeExit.Size = new System.Drawing.Size(184, 28);
+            this.cbAddTimeExit.Size = new System.Drawing.Size(237, 27);
             this.cbAddTimeExit.TabIndex = 3;
             this.cbAddTimeExit.Text = "Adicionar hora de saída";
             this.cbAddTimeExit.UseVisualStyleBackColor = true;
@@ -532,7 +543,7 @@
             // 
             // FrmCustomerService
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(1188, 471);

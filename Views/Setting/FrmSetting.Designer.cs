@@ -54,7 +54,7 @@
             this.label1.Location = new System.Drawing.Point(17, 33);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.Size = new System.Drawing.Size(84, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Diretório";
             // 
@@ -80,7 +80,7 @@
             this.label2.Location = new System.Drawing.Point(18, 96);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(338, 17);
+            this.label2.Size = new System.Drawing.Size(405, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Escolha um diretório direto do disco. EX: C:\\Example";
             // 
@@ -104,7 +104,7 @@
             // 
             this.txtDirectoryBackup.Location = new System.Drawing.Point(21, 57);
             this.txtDirectoryBackup.Name = "txtDirectoryBackup";
-            this.txtDirectoryBackup.Size = new System.Drawing.Size(441, 26);
+            this.txtDirectoryBackup.Size = new System.Drawing.Size(441, 30);
             this.txtDirectoryBackup.TabIndex = 1;
             // 
             // groupBox2
@@ -121,9 +121,10 @@
             // cbPrint
             // 
             this.cbPrint.AutoSize = true;
+            this.cbPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbPrint.Location = new System.Drawing.Point(21, 30);
             this.cbPrint.Name = "cbPrint";
-            this.cbPrint.Size = new System.Drawing.Size(345, 24);
+            this.cbPrint.Size = new System.Drawing.Size(414, 29);
             this.cbPrint.TabIndex = 3;
             this.cbPrint.Text = "Imprimir Relatório diretamente na impressora";
             this.cbPrint.UseVisualStyleBackColor = true;
@@ -151,22 +152,23 @@
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             // 
-            // cbEntryAndExit
+            // cbTimeEntryAndExit
             // 
             this.cbTimeEntryAndExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbTimeEntryAndExit.AutoSize = true;
-            this.cbTimeEntryAndExit.Location = new System.Drawing.Point(21, 30);
-            this.cbTimeEntryAndExit.Name = "cbEntryAndExit";
-            this.cbTimeEntryAndExit.Size = new System.Drawing.Size(381, 24);
+            this.cbTimeEntryAndExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbTimeEntryAndExit.Location = new System.Drawing.Point(21, 25);
+            this.cbTimeEntryAndExit.Name = "cbTimeEntryAndExit";
+            this.cbTimeEntryAndExit.Size = new System.Drawing.Size(461, 29);
             this.cbTimeEntryAndExit.TabIndex = 82;
             this.cbTimeEntryAndExit.Text = "Adicionar hora de entrada e saída no atendimento";
             this.cbTimeEntryAndExit.UseVisualStyleBackColor = true;
             // 
             // FrmSetting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(617, 304);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnConfirm);

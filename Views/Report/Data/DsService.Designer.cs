@@ -1767,11 +1767,11 @@ namespace Interface.Views.Report.Data.DsServiceTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Services.description, CONVERT(VARCHAR, Services.date_service, 103) AS date_service, Services.time_of_service, Services.departure_time, Services.sector, Users.name, Users.address
-FROM            Services INNER JOIN
-                         Users ON Users.id = Services.user_id
-WHERE        (CONVERT(VARCHAR, Services.date_service, 103) LIKE @year)
-ORDER BY  CONVERT(DATE, Services.date_service, 103), CONVERT(Time, Services.time_of_service, 103) DESC";
+            this._commandCollection[0].CommandText = @"SELECT Services.description, CONVERT(VARCHAR, Services.date_service, 103) AS date_service, Services.time_of_service, Services.departure_time, Services.sector, Users.name, Users.address
+FROM     Services INNER JOIN
+                  Users ON Users.id = Services.user_id
+WHERE  (CONVERT(VARCHAR, Services.date_service, 103) LIKE @year)
+ORDER BY CONVERT(DATE, Services.date_service, 103) DESC, CONVERT(Time, Services.time_of_service, 103) DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@year", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

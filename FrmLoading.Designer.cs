@@ -39,9 +39,9 @@
             // 
             // pbLoading
             // 
-            this.pbLoading.Location = new System.Drawing.Point(18, 84);
+            this.pbLoading.Location = new System.Drawing.Point(20, 81);
             this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(438, 32);
+            this.pbLoading.Size = new System.Drawing.Size(533, 32);
             this.pbLoading.TabIndex = 0;
             // 
             // label1
@@ -49,7 +49,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(171, 139);
+            this.label1.Location = new System.Drawing.Point(235, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 20);
             this.label1.TabIndex = 1;
@@ -62,15 +62,14 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Millimeter, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.label2.Location = new System.Drawing.Point(9, 17);
+            this.label2.Location = new System.Drawing.Point(9, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(464, 53);
+            this.label2.Size = new System.Drawing.Size(564, 53);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Atendimento Central";
+            this.label2.Text = "Central de Atendimentos";
             // 
             // lkClose
             // 
@@ -80,7 +79,7 @@
             this.lkClose.ForeColor = System.Drawing.Color.White;
             this.lkClose.LinkArea = new System.Windows.Forms.LinkArea(0, 6);
             this.lkClose.LinkColor = System.Drawing.Color.White;
-            this.lkClose.Location = new System.Drawing.Point(397, 166);
+            this.lkClose.Location = new System.Drawing.Point(494, 166);
             this.lkClose.Name = "lkClose";
             this.lkClose.Size = new System.Drawing.Size(59, 20);
             this.lkClose.TabIndex = 3;
@@ -94,7 +93,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(468, 195);
+            this.ClientSize = new System.Drawing.Size(582, 195);
             this.Controls.Add(this.lkClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbLoading);
